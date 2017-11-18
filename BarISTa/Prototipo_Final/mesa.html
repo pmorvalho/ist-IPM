@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="imagens_gerais/index.png" />
+<title>BarISTa</title>
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="canto/css/circle-menu.min.css">
+
+<script src='jquery.min.js'></script>
+
+<script src="scripts.js"></script>
+
+<script src="corpos/corpos.js"></script>
+
+
+<script>
+
+$(document).ready(function(){
+
+  $( ".help_btn" ).click(function() {
+                $( "#main_help" ).fadeIn( 700 );
+                eventFire('c-circle-nav__toggle', 'click');
+                eventFire('botao_do_more', 'click');
+  });
+  
+  $( ".music_help_bt" ). click(function() {
+		$( ".popup_ajuda_musica" ).fadeIn( 700 );
+  });
+  $( ".OK_ajuda_musica" ). click(function() {
+		$( ".popup_ajuda_musica" ).fadeOut( 700 );
+  });
+  
+  $( ".pedido_help_bt" ). click(function() {
+		$( ".popup_ajuda_pedido" ).fadeIn( 700 );
+  });
+  $( ".OK_ajuda_pedido" ). click(function() {
+		$( ".popup_ajuda_pedido" ).fadeOut( 700 );
+  });
+  
+
+  // $( ".popup_img_no" ).click(function() {
+  //               $( ".popup" ).fadeOut( 700 );
+  // });
+
+  $( ".tick_bt" ).click(function() {
+                $( ".popup" ).fadeIn( 700 );
+                perc = 0;
+                animateUpdate(".popup");
+  });
+
+  $( ".home" ).click(function() {
+                $( ".home" ).fadeOut( 700 );
+                $( ".mesaa" ).fadeIn( 1000 );
+  });
+
+  $( ".music_bt" ).click(function() {
+                $( ".music_window" ).fadeIn( 700 );
+  });
+
+  $( ".pedido_bt" ).click(function() {
+                $( ".pedido_window" ).fadeIn( 700 );
+  });
+
+  $( ".close_music" ).click(function() {
+                $( ".music_window" ).fadeOut( 700 );
+                $( ".popup_sugestao_pedido" ).fadeIn( 700 );
+  });
+
+  $( ".close_pedido" ).click(function() {
+  		if (total_price <= 0)
+                	$( ".pedido_window" ).fadeOut( 700 );
+                else {
+                	$( ".popup_cancelar" ).fadeIn( 700 );
+                }
+  });
+
+  $( ".cancelar_yes" ).click(function() {
+                $( ".popup_cancelar" ).fadeOut( 700 );
+                $( ".pedido_window" ).fadeOut( 700 );
+                $( ".item_resumo" ).remove();
+                total_price = 0.00;
+		products = [];
+		products_x = [];
+		document.getElementById("preco_TOTAL").textContent="0.00€";
+  });
+
+  $( ".cancelar_no" ).click(function() {
+		$( ".popup_cancelar" ).fadeOut( 700 );
+  });
+
+  $(".PEDIR_BOTAO").click(function() {
+		if(total_price > 0.01 ){
+		  $( ".popup_confirmar_pedido" ).fadeIn( 700 );
+		}
+  });
+
+  $( ".confirmar_yes" ).click(function() {
+                $( ".popup_confirmar_pedido" ).fadeOut( 700 );
+                $( ".pedido_window" ).fadeOut( 700 );
+                $( ".item_resumo" ).remove();
+                total_price = 0.00;
+		products = [];
+		products_x = [];
+		document.getElementById("preco_TOTAL").textContent="0.00€";
+		$( ".popup" ).fadeIn( 700 );
+                perc = 0;
+                animateUpdate_com_sugest(".popup");
+  });
+
+  $( ".confirmar_no" ).click(function() {
+		$( ".popup_confirmar_pedido" ).fadeOut( 700 );
+  });
+
+  $( ".waiter_bt" ).click(function() {
+                $( ".popup_chamar_empregado" ).fadeIn( 700 );
+  });
+
+  $( ".empregado_no" ).click(function() {
+		$( ".popup_chamar_empregado" ).fadeOut( 700 );
+  });
+
+  $( ".empregado_yes" ).click(function() {
+		$( ".popup_chamar_empregado" ).fadeOut( 700 );
+    $( ".popup_confirmar_empregado" ).fadeIn( 700 );
+      perc = 0;
+      animateUpdate(".popup_confirmar_empregado");
+  });
+  
+  $( ".popup_img_yes" ).click(function() {
+                $( ".popup_ajuda" ).fadeOut( 700 );
+  });
+
+  $( ".sugest_yes_musica" ).click(function() {
+                $( ".popup_sugestao_musica" ).fadeOut( 700 );
+                $( ".music_window" ).fadeIn( 700 );
+  });
+  
+  $( ".sugest_no_musica" ).click(function() {
+                $( ".popup_sugestao_musica" ).fadeOut( 700 );
+  });
+
+    $( ".sugest_yes_pedido" ).click(function() {
+                $( ".popup_sugestao_pedido" ).fadeOut( 700 );
+                $( ".pedido_window" ).fadeIn( 700 );
+  });
+  
+  $( ".sugest_no_pedido" ).click(function() {
+                $( ".popup_sugestao_pedido" ).fadeOut( 700 );
+  });
+  
+});
+
+</script>
+
+</head>
+
+<body style="text-align: left;" >
+
+<img id="home_screen" border="0" src="imagens_gerais/home.png" class="home" > <!-- style="display:none" DISPLAY NOT NONE!!!!!!!!!!!!!!!!!!!!! -->
+
+
+
+<div id="mesa" class="mesaa" style="display:none"> <!-- style="display:none" DISPLAY NOT NONE!!!!!!!!!!!!!!!!!!!!! -->
+	<img src="imagens_gerais/firsthelp.png" class="firstHELP" onclick="close_help()"> </img>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - CONTAINER - - - - - - - - - - - - - - - - - - - - - - -->
+  <div id='container'>
+      <div id="elem" onmousedown='mydragg.startMoving(this,"container",event);' onmouseup='mydragg.stopMoving("container");' style="display:none">
+        <table>
+          <tr>
+            <td> <div id="copo_layer" style='width:18vh;height:18vh;padding:9px;' onmouseup="copo('elem','mais_1_left','mais_1');"> </div> </td>
+
+            <td>
+	      <div id="mais_1_left" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="imagens_gerais/cross.png" id="cross" onclick="toggleVisible('mais_1_left');"> </td>
+                    <td> <img src="imagens_gerais/tick.png" id="tick" class="tick_bt" onclick="toggleVisible('mais_1_left');"> </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+
+            <td>
+	      <div id="mais_1" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="imagens_gerais/cross.png" id="cross" onclick="toggleVisible('mais_1');"> </td>
+		    <td> <img src="imagens_gerais/tick.png" id="tick" class="tick_bt" onclick="toggleVisible('mais_1');"> </td>
+		  </tr>
+		</table>
+              </div>
+            </td>
+
+	  </tr>
+        </table>
+      </div>
+
+    <div id="elem_tlm" onmousedown='mydragg.startMoving(this,"container",event);' onmouseup='mydragg.stopMoving("container");' style="display:none">
+        <table>
+          <tr>
+            <td> <div id="tlm_layer" style='width:25vh;height:40vh;padding:9px;' onmouseup="telemovel('elem_tlm','telemovelDados_left','telemovelDados_right');"> </div> </td>
+
+            <td>
+	      <div id="telemovelDados_left" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="imagens_gerais/cross.png" id="cross" onclick="toggleVisible('telemovelDados_left');tratarTlm();"> </td>
+                    <td> <img src="imagens_gerais/tick.png" id="tick" class="tick_bt" onclick="toggleVisible('telemovelDados_left');tratarTlm();"> </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+
+            <td>
+	      <div id="telemovelDados_right" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="imagens_gerais/cross.png" id="cross" onclick="toggleVisible('telemovelDados_right');tratarTlm();"> </td>
+		    <td> <img src="imagens_gerais/tick.png" id="tick" class="tick_bt" onclick="toggleVisible('telemovelDados_right');tratarTlm();"> </td>
+		  </tr>
+		</table>
+              </div>
+            </td>
+
+	  </tr>
+        </table>
+      </div>
+
+    <div id="elem_maco" onmousedown='mydragg.startMoving(this,"container",event);' onmouseup='mydragg.stopMoving("container");' style="display:none">
+        <table>
+          <tr>
+            <td> <div id="maco_layer" style='width:25vh;height:30vh;padding:9px;' onmouseup="maco('elem_maco','cinzeiro_left','cinzeiro_right');"> </div> </td>
+
+            <td>
+	            <div id="cinzeiro_left" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="imagens_gerais/cross.png" id="cross" onclick="toggleVisible('cinzeiro_left');tratarMaco();"> </td>
+                    <td> <img src="imagens_gerais/tick.png" id="tick" class="tick_bt" onclick="toggleVisible('cinzeiro_left');tratarMaco();"> </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+
+            <td>
+	            <div id="cinzeiro_right" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="imagens_gerais/cross.png" id="cross" onclick="toggleVisible('cinzeiro_right');tratarMaco();"> </td>
+            		    <td> <img src="imagens_gerais/tick.png" id="tick" class="tick_bt" onclick="toggleVisible('cinzeiro_right');tratarMaco();"> </td>
+            		  </tr>
+            		</table>
+              </div>
+            </td>
+
+	         </tr>
+        </table>
+      </div>
+    </div>
+
+	<div id="div_help" align="left">
+		<img src="imagens_gerais/help.png" id="help_bt" style="cursor:pointer" class="help_btn"> </img>
+	</div>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - MUSICA STARTS HERE - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <div class="music_window" id="janela_musica" align="left" style="display:none">
+    <!-- Meter cenas da musica aqui -->
+    <div id="barra_cima" onmousedown='bring_to_front("janela_musica","janela_pedido");mydragg.startMoving(document.getElementById("janela_musica"),"mesa",event);' onmouseup='mydragg.stopMoving("mesa");'>
+      <span id="titulo_musica"> Música </span>
+      <img src="imagens_gerais/close_window.png" class="close_music"/>
+      <img src="imagens_gerais/help_white.png" class="music_help_bt"> </img>
+    </div>
+
+    <div id="barra_left">
+      <div id="browse_bt" style="cursor:pointer" onclick="changeGenre('TOP');toggleHighlight('browse_bt','browse_tab','playlist_bt', 'playlist_tab')"> <img src="music/browse.png" id="browse_img"> </img> </div>
+      <div id="playlist_bt" style="cursor:pointer" onclick="toggleHighlight('playlist_bt', 'playlist_tab','browse_bt','browse_tab')"> <img src="music/playlist.png" id="playlist_img"> </img> </div>
+    </div>
+
+    <div id="barra_nowPlaying" class="scroll-left">
+      <p> Frank Ocean  &nbsp; <b>Novacane</b> &nbsp; nostalgia, ULTRA</p>
+    </div>
+
+    <div id="nowPlaying">
+      <span id="titulo_musica"> A reproduzir: </span>
+    </div>
+
+    <div id="browse_tab">
+
+      <div id="TOP" class="head_browse">
+	<span id="browse_title"> TOP </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Kevin Spacey - Somewhere Beyond The Sea (3:33)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Kevin Spacey - Somewhere Beyond The Sea (3:33)')"> </img>
+	    </div>
+	  </td> </tr>
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Frank Sinatra - Fly Me to The Moon (2:14)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Frank Sinatra - Fly Me to The Moon (2:14)')"> </img>
+	    </div>
+	  </td> </tr>
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Caetano Veloso - Garota de Ipanema (2:35)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Caetano Veloso - Garota de Ipanema (2:35)')"> </img>
+	    </div>
+	  </td> </tr>
+        </table>
+      </div>
+
+      <div id="HH" class="head_browse" style="display:none">
+	<span id="browse_title"> Hip Hop </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Drake, The Throne - Pop Style (3:29)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Drake, The Throne - Pop Style (3:29)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Kanye West - Waves (2:56)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Kanye West - Waves (2:56)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Rae Sremmurd - Look Alive (3:48)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Rae Sremmurd - Look Alive (3:48)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+
+      <div id="pop" style="display:none" class="head_browse">
+	<span id="browse_title"> Pop </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Snakehips - All My Friends (3:49)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Snakehips - All My Friends (3:49)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Ariana Grande - Dangerous Woman (3:56)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Ariana Grande - Dangerous Woman (3:56)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Meghan Trainor - NO (3:34)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Meghan Trainor - NO (3:34)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+
+      <div id="party" style="display:none" class="head_browse">
+	<span id="browse_title"> Party </span>
+        <table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Calvin Harris, The Disciples - How Deep Is Your Love (3:33)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Calvin Harris, The Disciples - How Deep Is Your Love (3:33)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Kygo - Firestone (4:33)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Kygo - Firestone (4:33)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Jack U, Diplo, Skrillex - Where Are U Now (5:08)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Chopin, Fantasie-Impromptu, opus 66 (5:08)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+
+      <div id="rock" style="display:none" class="head_browse">
+	<span id="browse_title"> Rock </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Deep Purple - Highway Star (5:40)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Deep Purple - Highway Star (5:40)')"> </img>
+	    </div>
+	  </td> </tr>
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> The Beatles - Lucy In The Sky With Diamonds (4:20)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'The Beatles - Lucy In The Sky With Diamonds (4:20)')"> </img>
+	    </div>
+	  </td> </tr>
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> The Doors - Break on Through (2:15)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'The Doors - Break on Through (2:15)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+
+      <div id="jazz" style="display:none" class="head_browse">
+	<span id="browse_title"> Jazz </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Louis Armstrontg - Blueberry Hill (2:45)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Louis Armstrontg - Blueberry Hill (2:45)')"> </img>
+	    </div>
+	  </td> </tr>
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> John Coltrane - Naima (7:23)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'John Coltrane - Naima (7:23)')"> </img>
+	    </div>
+	  </td> </tr>
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Miles Davis - So What (8:17)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Miles Davis - So What (8:17)')"> </img>
+	    </div>
+	  </td> </tr>
+	 </table>
+      </div>
+
+
+
+      <div id="Chill" style="display:none" class="head_browse">
+	<span id="browse_title"> Chill </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> James Bay - Let It Go (4:21)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'James Bay - Let It Go (4:21)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Bryson Tyler - Don't (3:35)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Bryson Tyler - Don't (3:35)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Angel Snow - These Days (4:41)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Chopin, Fantasie-Impromptu, opus 66 (5:08)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+
+      <div id="Classic" style="display:none" class="head_browse">
+	<span id="browse_title"> Classical </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Chopin - Fantasie-Impromptu, opus 66 (5:08)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Chopin - Fantasie-Impromptu, opus 66 (5:08)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title">  Debussy - Clair de lune (5:07)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Debussy - Clair de lune (5:07)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title">  Richard Wagner - Ride Of The Valkyries (5:00)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Richard Wagner - Ride Of The Valkyries (5:00)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+
+      <div id="RnB" style="display:none" class="head_browse">
+	<span id="browse_title"> RnB </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Bryson Tyler - Exchange (3:31)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Bryson Tyler - Exchange (3:31)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> dvsn - Too Deep (3:20)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'dvsn - Too Deep (3:20)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> K. Michelle - Not A Little Bit (3:28)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'K. Michelle - Not A Little Bit (3:28)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+      <div id="Soul" style="display:none" class="head_browse">
+	<span id="browse_title"> Soul </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> A Tribe Called Quest - Electric Relaxation (3:46)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'A Tribe Called Quest - Electric Relaxation (3:46)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Emily King - Good Friend (2:38)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Emily King - Good Friend (2:38)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> One Self - Blue Bird (3:40)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'One Self - Blue Bird (3:40)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+      <div id="Blues" style="display:none" class="head_browse">
+	<span id="browse_title"> Blues </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Jerry Lee Lewis - Great Balls of Fire (3:30)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Jerry Lee Lewis - Great Balls of Fire (3:30)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> John Lee Hooker - Boom Boom (3:50)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'John Lee Hooker - Boom Boom (3:50)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> BB King - Everyday I Have The Blues (4:03)</span>
+	      <img src="imagens_gerais/plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'BB King - Everyday I Have The Blues (4:03)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+	<br>
+      <tr> <td>
+       <span id="browse_title"> <br>Géneros </span>
+       <div id="estilos">
+	    <div  id="generos_primeiros">
+	      <img src="music/HH.png" id="fotos_estilos" style="cursor:pointer" onclick="changeGenre('HH')"> </img>
+	      <img src="music/pop.png" id="fotos_estilos" style="cursor:pointer" onclick="changeGenre('pop')"> </img>
+	      <img src="music/PARTY.png" id="fotos_estilos" style="cursor:pointer" onclick="changeGenre('party')"> </img>
+	      <img src="music/ROCK.png" id="fotos_estilos" style="cursor:pointer" onclick="changeGenre('rock')"> </img>
+	      <img src="music/JAZZ.png" id="fotos_estilos" style="cursor:pointer" onclick="changeGenre('jazz')"> </img>
+	      <img src="music/prox_generos.png" id="prox_generos_right" style="cursor:pointer" onclick="toggleGeneros('generos_segundos','generos_primeiros')"> </img>
+        </div>
+
+        <div id="generos_segundos">
+	      <img src="music/prox_generos.png" id="prox_generos_left" style="cursor:pointer" onclick="toggleGeneros('generos_primeiros','generos_segundos')"> </img>
+	      <img src="music/CHILL.png" id="fotos_estilos_2" style="cursor:pointer" onclick="changeGenre('Chill')"> </img>
+	      <img src="music/Classical.png" id="fotos_estilos_2" style="cursor:pointer" onclick="changeGenre('Classic')"> </img>
+	      <img src="music/RnB.png" id="fotos_estilos_2" style="cursor:pointer" onclick="changeGenre('RnB')"> </img>
+	      <img src="music/Soul.png" id="fotos_estilos_2" style="cursor:pointer" onclick="changeGenre('Soul')"> </img>
+	      <img src="music/Blues.png" id="fotos_estilos_2" style="cursor:pointer" onclick="changeGenre('Blues')"> </img>
+	    </div>
+       </div>
+      </td> </tr>
+    </div>
+
+    <div id="playlist_tab" style="display:none">
+      <span id="browse_title"> Playlist </span>
+
+      <table>
+        <tr> <td>
+          <div class="songs">
+            <span id="song_title"> Frank Ocean - Novacane (3:33) </span>
+          </div>
+        </td> </tr>
+
+        <tr> <td>
+          <div class="songs">
+            <span id="song_title"> Bob Dylan - Strangers in the Night (4:59) </span>
+          </div>
+        </td> </tr>
+
+        <tr> <td>
+          <div class="songs">
+            <span id="song_title"> Billie Holiday - Summertime (2:54)</span>
+          </div>
+        </td> </tr>
+
+        <tr> <td>
+          <div class="songs" id="user_song_box" style="display:none">
+            <span id="user_song"> Musica qualquer </span>
+            <img src="imagens_gerais/remove.png" id="add_song" onclick="rem_user_song()"> </img>
+          </div>
+        </td> </tr>
+
+      </table>
+
+    </div>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - MUSIC ENDS HERE - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - PEDIDO STARTS HERE - - - - - - - - - - - - - - - - - - - - - - - -->
+  <div class="pedido_window" id="janela_pedido" align="left" style="display:none">
+    <div id="barra_cima_pedido" onmousedown='bring_to_front("janela_pedido","janela_musica");mydragg.startMoving(document.getElementById("janela_pedido"),"mesa",event);' onmouseup='mydragg.stopMoving("mesa");'>
+      <span id="titulo_pedido"> Menu </span>
+      <img src="imagens_gerais/close_window.png" class="close_pedido"/>
+      <img src="imagens_gerais/help_white.png" class="pedido_help_bt"> </img>
+    </div>
+
+    <div id="barra_left_pedido">
+      <div id="comida_bt" style="cursor:pointer" onclick="toggleHighlight('comida_bt','comida_tab','bebida_bt', 'bebida_tab');changeFood('comida_home')"> <img src="img_pedido/ordercomida.png" id="comida_img"> </img> </div>
+      <div id="bebida_bt" style="cursor:pointer" onclick="toggleHighlight('bebida_bt', 'bebida_tab','comida_bt','comida_tab');changeDrink('bebida_home')"> <img src="img_pedido/orderbebida.png" id="bebida_img"> </img> </div>
+    </div>
+
+    <div id="comida_tab" style="display:none" align="left">
+    	<div id="comida_home" class="head_pedidos_food">
+	      	<span id="pedido_title"> Comida <br><br> </span>
+	      	<div  id="comidas_primeiras">
+	          <img src="img_pedido/cashews.png" id="fotos_comida" style="cursor:pointer" onclick="changeFood('Aperitivos')"> </img> &nbsp;&nbsp;
+	          <img src="img_pedido/bolos.png" id="fotos_comida" style="cursor:pointer" onclick="changeFood('Bolos')"> </img> &nbsp;&nbsp;
+	          <img src="img_pedido/sandwich.png" id="fotos_comida" style="cursor:pointer" onclick="changeFood('Sandes')"> </img> &nbsp;&nbsp;
+	          <img src="img_pedido/Pburger.png" id="fotos_comida" style="cursor:pointer" onclick="changeFood('Hamburguesas')"> </img> &nbsp;&nbsp;
+	        </div>
+	</div>
+
+		<div id="Aperitivos" style="display:none" class="head_pedidos_food">
+		  <span id="pedido_title" style="cursor:pointer" onclick="changeFood('comida_home')"> <u>Comida</u> </span> <span id="pedido_title"> > </span> <span id="pedido_title" style="cursor:pointer" oclick=""> Aperitivos <br><br> </span>
+			<table>
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Amêndoas </span> <span id="produto_preco"> 1.20€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('Amêndoas',1.20)"> </img>
+			</div>
+			</td> </tr>
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Amendoíns </span> <span id="produto_preco"> 0.80€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('Amendoíns',0.80)"> </img>
+			</div>
+			</td> </tr>
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Cajus </span> <span id="produto_preco"> 2.00€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('Cajus',2.00)"> </img>
+			</div>
+			</td> </tr>
+
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Milho Frito </span> <span id="produto_preco"> 2.00€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('Milho',2.00)"> </img>
+			</div>
+			</td> </tr>
+
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Pistáchos </span> <span id="produto_preco"> 1.50€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('Pistáchos',1.50)"> </img>
+			</div>
+			</td> </tr>
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Tremoços </span> <span id="produto_preco"> 0.50€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('Tremoços',0.50)"> </img>
+			</div>
+			</td> </tr>
+
+			</table>
+		</div>
+
+
+		<div id="Bolos" style="display:none" class="head_pedidos_food">
+		  <span id="pedido_title" style="cursor:pointer" onclick="changeFood('comida_home')"> <u>Comida</u> </span> <span id="pedido_title"> > </span> <span id="pedido_title" style="cursor:pointer" oclick=""> Bolos <br><br> </span>
+			<table>
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Croissant </span> <span id="produto_preco"> 1.20€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('Croissant',1.20)"> </img>
+			</div>
+			</td> </tr>
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Folhado </span> <span id="produto_preco"> 0.90€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('Folhado',0.90)"> </img>
+			</div>
+			</td> </tr>
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Jesuíta </span> <span id="produto_preco"> 1.00€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('Jesuíta',1.00)"> </img>
+			</div>
+			</td> </tr>
+
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Palmier </span> <span id="produto_preco"> 1.00€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('Palmier',1.00)"> </img>
+			</div>
+			</td> </tr>
+
+			</table>
+		</div>
+
+
+		<div id="Hamburguesas" style="display:none" class="head_pedidos_food">
+		  <span id="pedido_title" style="cursor:pointer" onclick="changeFood('comida_home')"> <u>Comida</u> </span> <span id="pedido_title"> > </span> <span id="pedido_title" style="cursor:pointer" oclick=""> Hamburgueres <br><br> </span>
+			<table>
+
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Bacon </span> <span id="produto_preco"> 3.90€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('HambBacon',3.90)"> </img>
+			</div>
+			</td> </tr>
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Caseiro </span> <span id="produto_preco"> 4.90€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('HambCaseiro',4.90)"> </img>
+			</div>
+			</td> </tr>
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Queijo </span> <span id="produto_preco"> 3.10€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('HambQueijo',3.10)"> </img>
+			</div>
+			</td> </tr>
+
+			</table>
+		</div>
+
+
+		<div id="Sandes" style="display:none" class="head_pedidos_food">
+		  <span id="pedido_title" style="cursor:pointer" onclick="changeFood('comida_home')"> <u>Comida</u> </span> <span id="pedido_title"> > </span> <span id="pedido_title" style="cursor:pointer" oclick=""> Sandes <br><br> </span>
+			<table>
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Fiambre </span> <span id="produto_preco"> 1.00€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('SandFiambre',1.00)"> </img>
+			</div>
+			</td> </tr>
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Manteiga </span> <span id="produto_preco"> 0.60€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('SandManteiga',0.60)"> </img>
+			</div>
+			</td> </tr>
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Mista </span> <span id="produto_preco"> 1.60€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('SandMista',1.60)"> </img>
+			</div>
+			</td> </tr>
+
+			<tr> <td>
+			<div class="comidas">
+			  <span id="produto_title"> Queijo </span> <span id="produto_preco"> 1.00€ </span>
+			  <img src="imagens_gerais/plus.png" class="adiciona_comidas" id="adiciona_comida" onclick="add_product('SandQueijo',1.00)"> </img>
+			</div>
+			</td> </tr>
+
+
+			</table>
+		</div>
+	</div>
+
+    <div id="bebida_tab" align="left">
+    	<div id="bebida_home" class="head_pedidos_drink">
+	      	<span id="pedido_title"> Bebida <br><br> </span>
+	      	<div  id="bebidas_primeiras">
+	          <img src="img_pedido/bebidasbrancas.png" id="fotos_bebida" style="cursor:pointer" onclick="changeDrink('Bebidas Brancas')"> </img> &nbsp;&nbsp;
+	          <img src="img_pedido/Bquentes.png" id="fotos_bebida" style="cursor:pointer" onclick="changeDrink('Bebidas Quentes')"> </img> &nbsp;&nbsp;
+	          <img src="img_pedido/cervejas.png" id="fotos_bebida" style="cursor:pointer" onclick="changeDrink('Cervejas')"> </img> &nbsp;&nbsp;
+	          <img src="img_pedido/espirituosas.png" id="fotos_bebida" style="cursor:pointer" onclick="changeDrink('Bebidas Espirituais')"> </img> &nbsp;&nbsp;
+	        </div>
+
+	        <div id="bebidas_segundas">
+	          <img src="img_pedido/ref.png" id="fotos_bebida_2" style="cursor:pointer" onclick="changeDrink('Refrigerantes')"> </img> &nbsp;&nbsp;
+	          <img src="img_pedido/whiskies.png" id="fotos_bebida_2" style="cursor:pointer" onclick="changeDrink('Whiskeys')"> </img> &nbsp;&nbsp;
+
+	        </div>
+	      </div>
+
+	    <div id="Bebidas Brancas" style="display:none" class="head_pedidos_drink">
+		  <span id="pedido_title" style="cursor:pointer" onclick="changeDrink('bebida_home')"> <u>Bebida</u> </span> <span id="pedido_title"> > </span> <span id="pedido_title" style="cursor:pointer" oclick=""> Bebidas Brancas <br><br> </span>
+	    <table>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Malibu Cola </span> <span id="produto_preco"> 5.00€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('MalibuCola',5.00)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Safari Cola </span> <span id="produto_preco"> 5.00€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('SafariCola', 5.00)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Vodka Cola </span> <span id="produto_preco"> 5.00€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('VodkaCola',5.00)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Vodka Preta Cola </span> <span id="produto_preco"> 5.00€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('VodkaPretaCola',5.00)"> </img>
+	    </div>
+	    </td> </tr>
+
+
+
+	    </table>
+	    </div>
+
+
+
+
+
+
+	    <div id="Bebidas Quentes" style="display:none" class="head_pedidos_drink">
+		  <span id="pedido_title" style="cursor:pointer" onclick="changeDrink('bebida_home')"> <u>Bebida</u> </span> <span id="pedido_title"> > </span> <span id="pedido_title" style="cursor:pointer" oclick=""> Bebidas Quentes <br><br> </span>
+	    <table>
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Café </span> <span id="produto_preco"> 0.50€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('Café', 0.50)"> </img>
+	    </div>
+	    </td> </tr>
+
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Chá </span> <span id="produto_preco"> 1.00€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('Chá', 1.00)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Chocolate Quente </span> <span id="produto_preco"> 2.00€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('ChocQuente', 2.00)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Leite </span> <span id="produto_preco"> 0.80€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('Leite', 0.80)"> </img>
+	    </div>
+	    </td> </tr>
+
+
+	    </table>
+	    </div>
+
+
+
+
+	    <div id="Cervejas" style="display:none" class="head_pedidos_drink">
+		  <span id="pedido_title" style="cursor:pointer" onclick="changeDrink('bebida_home')"> <u>Bebida</u> </span> <span id="pedido_title"> > </span> <span id="pedido_title" style="cursor:pointer" oclick=""> Cervejas <br><br> </span>
+	    <table>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Sagres  </span> <span id="produto_preco"> 1.20€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('Sagres',1.20)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Heineken </span> <span id="produto_preco"> 2.00€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('Heineken', 2.00)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Super Bock </span> <span id="produto_preco"> 1.20€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('SuperBock', 1.20)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Super Bock Bohemia </span> <span id="produto_preco"> 2.00€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('SBBohemia', 2.00)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Super Bock Preta </span> <span id="produto_preco"> 2.00€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('SuperBockPreta', 2.00)"> </img>
+	    </div>
+	    </td> </tr>
+
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Super Bock Sem Álcool  </span> <span id="produto_preco"> 1.20€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('SBSemÁlcool', 1.20)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    </table>
+	    </div>
+
+
+
+
+
+	    <div id="Bebidas Espirituais" style="display:none" class="head_pedidos_drink">
+		  <span id="pedido_title" style="cursor:pointer" onclick="changeDrink('bebida_home')"> <u>Bebida</u> </span> <span id="pedido_title"> > </span> <span id="pedido_title" style="cursor:pointer" oclick=""> Bebidas Espirituais <br><br> </span>
+	    <table>
+
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Licor de Amêndoa </span> <span id="produto_preco"> 3.00€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('LicorAmêndoa', 3.00)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Licor de Café </span> <span id="produto_preco"> 4.00€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('LicorCafé', 4.00)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Licor de Morango </span> <span id="produto_preco"> 3.00€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('LicorMorango',3.00)"> </img>
+	    </div>
+	    </td> </tr>
+
+
+
+	    </table>
+	    </div>
+
+
+
+
+	    <div id="Refrigerantes" style="display:none" class="head_pedidos_drink">
+		  <span id="pedido_title" style="cursor:pointer" onclick="changeDrink('bebida_home')"> <u>Bebida</u> </span> <span id="pedido_title"> > </span> <span id="pedido_title" style="cursor:pointer" oclick=""> Refrigerantes <br><br> </span>
+	    <table>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> 7-UP </span> <span id="produto_preco"> 1.30€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('7UP', 1.30)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Coca-Cola </span> <span id="produto_preco"> 1.30€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('CocaCola',1.30)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Ice-Tea de Manga </span> <span id="produto_preco"> 1.30€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('IceTManga', 1.30)"> </img>
+	    </div>
+	    </td> </tr>
+
+
+
+	    </table>
+	    </div>
+
+
+
+
+
+
+
+
+	    <div id="Whiskeys" style="display:none" class="head_pedidos_drink">
+		  <span id="pedido_title" style="cursor:pointer" onclick="changeDrink('bebida_home')"> <u>Bebida</u> </span> <span id="pedido_title"> > </span> <span id="pedido_title" style="cursor:pointer" oclick=""> Whiskies <br><br> </span>
+	    <table>
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Jack Daniel's </span> <span id="produto_preco"> 5.00€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('JackDaniels', 5.00)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Label </span> <span id="produto_preco"> 5.00€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('Label', 5.00)"> </img>
+	    </div>
+	    </td> </tr>
+
+	    <tr> <td>
+	    <div class="bebidas">
+	      <span id="produto_title"> Logan's </span> <span id="produto_preco"> 5.00€ </span>
+	      <img src="imagens_gerais/plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick="add_product('Logans', 5.00)"> </img>
+	    </div>
+	    </td> </tr>
+
+
+
+	    </table>
+	    </div>
+
+
+    </div>
+  	<div id="resumo_pedido">
+  		<span>&nbsp;&nbsp;Pedido</span>
+		<div id="resumo" class="todos_pedidos" align="right"> </div>
+  		<button disabled id="PEDIR" class="PEDIR_BOTAO">PEDIR</button>
+  		<div align="left"> Total: <span id="preco_TOTAL" align="right">0.00€</span> </div>
+  	</div>
+  </div>
+  <!-- PEDIDO ENDS HERE -->
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - MENU CANTO - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <nav id="c-circle-nav" class="c-circle-nav">
+    <button id="c-circle-nav__toggle" class="c-circle-nav__toggle" onclick="actions_menu_button()">
+      <span>Toggle</span>
+    </button>
+    <ul class="c-circle-nav__items">
+      <li class="c-circle-nav__item">
+        <nav href="#" class="c-circle-nav__link">
+          <input type="checkbox" href="#" class="more_re-open" name="more_re-open" id="more_re-open" />
+
+          <label class="more_re-open-button" for="more_re-open" id="botao_do_more" onclick="open_close_flag()">
+            <img src="canto/img/more_ret.png" alt="">
+          </label>
+
+          <a href="#" class="more_re-item" onclick="doIT();eventFire('c-circle-nav__toggle', 'click')"> <i class="fa fa-bar-chart"> <img src="canto/img/alcool.png" alt=""> </i> </a>
+          <a href="#" class="more_re-item" onclick="doIT();eventFire('c-circle-nav__toggle', 'click')"> <i class="fa fa-plus"> <img src="canto/img/Bus.png" alt=""> </i> </a>
+          <a href="#" class="more_re-item" onclick="doIT();eventFire('c-circle-nav__toggle', 'click')"> <i class="fa fa-heart"></i><img src="canto/img/wc.png" alt=""> </a>
+          <a href="#" class="more_re-item" onclick="doIT();eventFire('c-circle-nav__toggle', 'click')"> <i class="fa fa-envelope"></i> <img src="canto/img/options.png" alt=""></a>
+        </nav>
+      </li>
+      <li class="c-circle-nav__item" onclick="eventFire('c-circle-nav__toggle', 'click'); bring_to_front('janela_musica','janela_pedido')">
+        <a href="#" class="c-circle-nav__link">
+          <img src="canto/img/music.png" alt="" class="music_bt">
+        </a>
+      </li>
+      <li class="c-circle-nav__item" onclick="eventFire('c-circle-nav__toggle', 'click'); bring_to_front('janela_pedido','janela_musica')">
+        <a href="#" class="c-circle-nav__link">
+          <img src="canto/img/order.png" alt="" class="pedido_bt">
+        </a>
+      </li>
+      <li class="c-circle-nav__item" onclick="doIT();eventFire('c-circle-nav__toggle', 'click')">
+        <a href="#" class="c-circle-nav__link">
+          <img src="canto/img/pay.png" alt="">
+        </a>
+      </li>
+      <li class="c-circle-nav__item" onclick="eventFire('c-circle-nav__toggle', 'click')">
+        <a href="#" class="c-circle-nav__link">
+          <img src="canto/img/waiter.png" alt="" class="waiter_bt">
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+
+  <script src="canto/js/circleMenu.min.js"></script>
+
+  
+  
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - POPUPS - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   
+    <!-- POP-UP COM BARRA -->
+    <div class="popup" style="display:none"> <!-- popup content start || copy this to the end of the file-->
+      <div class="popupWindow">
+        <div class="popup_txt">
+          O seu pedido está a ser processado.
+          Aguarde um momento. Obrigado!
+        </div>
+        <div class="barra" align="center" style="padding-top:5%">
+          <div id="pbar_outerdiv" align="left" style="width: 300px; height: 30px; border: 1px solid grey; z-index: 1; position: relative; border-radius: 5px; -moz-border-radius: 5px;">
+	           <div class="pbar_innerdiv" align="left" style="background-color: grey; z-index: 2; height: 100%; width: 0%;"></div>
+          </div>
+        </div>
+        <div class="popup_img">
+          <!-- <img src="imagens_gerais/tick.png" id="cross" class="popup_img_yes"/>
+          <img src="imagens_gerais/cross.png" id="cross" class="popup_img_no"/> -->
+        </div>
+      </div>
+    </div>  <!-- popup content ends -->
+
+    
+    <!-- POP-UP DE CONFIRMACAO -->
+
+    
+    <!-- POP-UP confirmar pedido -->
+    <div class="popup_confirmar_pedido" style="display:none"> <!-- popup content start || copy this to the end of the file-->
+      <div class="popupWindow">
+        <div class="popup_txt">
+          Pretende confirmar o seu pedido?
+        </div>
+        <div class="popup_img">
+      	  <img src="imagens_gerais/tick.png" id="tick_pedido" class="confirmar_yes"/>
+      	  <img src="imagens_gerais/cross.png" id="cross_pedido" class="confirmar_no"/>
+      	</div>
+      </div>
+
+    </div>  <!-- popup content ends -->
+
+    
+    <!-- POP-UP cancelar -->
+    <div class="popup_cancelar" style="display:none"> <!-- popup content start || copy this to the end of the file-->
+      <div class="popupWindow">
+        <div class="popup_txt">
+          Vai perder o seu pedido. <br>
+          Tem a certeza que pretende continuar?
+        </div>
+        <div class="popup_img">
+      	  <img src="imagens_gerais/tick.png" id="tick_pedido" class="cancelar_yes"/>
+      	  <img src="imagens_gerais/cross.png" id="cross_pedido" class="cancelar_no"/>
+      	</div>
+      </div>
+
+    </div>  <!-- popup content ends -->
+
+
+    <!-- POP-UP chamar Empregado -->
+    <div class="popup_chamar_empregado" style="display:none"> <!-- popup content start || copy this to the end of the file-->
+      <div class="popupWindow">
+	<div class="popup_txt">
+	  Tem a certeza que pretende chamar o empregado?
+	</div>
+	<div class="popup_img">
+	  <img src="imagens_gerais/tick.png" id="tick_pedido" class="empregado_yes"/>
+	  <img src="imagens_gerais/cross.png" id="cross_pedido" class="empregado_no"/>
+	</div>
+      </div>
+
+    </div>  <!-- popup content ends -->
+
+
+    <!-- POP-UP confirmar empregado -->
+    <div class="popup_confirmar_empregado" style="display:none"> <!-- popup content start || copy this to the end of the file-->
+      <div class="popupWindow">
+	<div class="popup_txt">
+	  O Empregado está a caminho!
+	</div>
+	<div class="barra" align="center" style="padding-top:5%">
+	  <div id="pbar_outerdiv" align="left" style="width: 300px; height: 30px; border: 1px solid grey; z-index: 1; position: relative; border-radius: 5px; -moz-border-radius: 5px;">
+	      <div class="pbar_innerdiv" align="left" style="background-color: grey; z-index: 2; height: 100%; width: 0%;"></div>
+	  </div>
+	</div>
+	<div class="popup_img">
+	  <!-- <img src="imagens_gerais/tick.png" id="cross" class="popup_img_yes"/>
+	  <img src="imagens_gerais/cross.png" id="cross" class="popup_img_no"/> -->
+	</div>
+      </div>
+    </div>  <!-- popup content ends -->
+
+    <!-- POP-UP ajuda musica -->
+    <div class="popup_ajuda_musica" style="display:none"> <!-- popup content start || copy this to the end of the file-->
+      <div class="popupWindow_ajuda">
+	<div class="popup_txt_ajuda" align="left">
+	  <b> Música </b> <br> <br>
+	  Aqui pode selecionar uma música que gostaria de ouvir tocar no bar. <br><br>
+	  A opção Navegar (localizada do lado esquerdo) apresenta o Top actual das músicas 
+	  mais tocadas no Bar bem como os estilos disponíveis. <br>Dentro destas opções poderá escolher a música que preferir.<br><br>
+	  A opção Playlist (localizada exactamente abaixo de Navegar) permite ver a lista de reprodução do Bar em tempo real, 
+	  lista à qual se pode adicionar uma música por mesa.
+	</div>
+	<div class="popup_img">
+	  <img src="imagens_gerais/tick.png" class="OK_ajuda_musica"/>
+	</div>
+      </div>
+
+    </div>  <!-- popup content ends -->
+
+    <!-- POP-UP ajuda pedido -->
+    <div class="popup_ajuda_pedido" style="display:none"> <!-- popup content start || copy this to the end of the file-->
+      <div class="popupWindow_ajuda">
+	<div class="popup_txt_ajuda" align="left">
+	  <b> Menu </b> <br> <br>
+	  Aqui pode aceder ao menu que está organizado entre Bebida e Comida. <br><br>
+	  Dentro destas duas categorias tem opções mais específicas de produtos que pode comprar no Bar. <br><br>
+	  Do lado direito encontra-se o resumo dos produtos já pedidos. Depois de ter adicionado algum produto, pode efectuar o seu pedido.
+	</div>
+	<div class="popup_img">
+	  <img src="imagens_gerais/tick.png" class="OK_ajuda_pedido"/>
+	</div>
+      </div>
+
+    </div>  <!-- popup content ends -->
+    
+    
+    <!-- POP-UP ajuda indisponível -->
+    <div class="popup_ajuda" style="display:none"> <!-- popup content start || copy this to the end of the file-->
+      <div class="popupWindow">
+        <div class="popup_txt">
+          Funcionalidade temporariamente indisponível. <br>
+          Se necessitar de ajuda, por favor utilize o botão do menu para chamar o empregado.
+          Pedimos desculpa pela inconveniência.
+        </div>
+        <div class="popup_img">
+      	  <img src="imagens_gerais/tick.png" id="tick_help" class="popup_img_yes"/>
+      	</div>
+      </div>
+
+    </div>  <!-- popup content ends -->
+    
+    
+    <!-- POPUP SUGEST MUSICA -->
+    <div class="popup_sugestao_musica" style="display:none"> <!-- popup content start || copy this to the end of the file-->
+      <div class="popupWindow">
+	<div class="popup_txt">
+	  Sugestão: Gostaria de selecionar uma música enquanto desfruta do seu pedido?
+	</div>
+	<div class="popup_img">
+	  <img src="imagens_gerais/tick.png" id="tick_pedido" class="sugest_yes_musica"/>
+	  <img src="imagens_gerais/cross.png" id="cross_pedido" class="sugest_no_musica"/>
+	</div>
+      </div>
+
+    </div>  <!-- popup content ends -->
+    
+	
+	
+    <!-- POPUP SUGEST PEDIDO -->
+    <div class="popup_sugestao_pedido" style="display:none"> <!-- popup content start || copy this to the end of the file-->
+      <div class="popupWindow">
+	<div class="popup_txt">
+	  Sugestão: Gostaria também de desfrutar de uma bebida ou de um snack?
+	</div>
+	<div class="popup_img">
+	  <img src="imagens_gerais/tick.png" id="tick_pedido" class="sugest_yes_pedido"/>
+	  <img src="imagens_gerais/cross.png" id="cross_pedido" class="sugest_no_pedido"/>
+	</div>
+      </div>
+
+    </div>  <!-- popup content ends -->
+  <!-- - - - - - - - - - - - - - POPUPS END HERE - - - - - - - - - - - - - -->
+
+	<img src="imagens_gerais/radgrad.png" id="grad" style="display:none"> </img>
+
+	<img src="imagens_gerais/main_help.png" id="main_help" style="display:none"> </img>
+
+  </div>
+
+<div id="barra_limite_right"> </div>
+<div id="barra_limite_down"> </div>
+
+<table id="botoes_out" align="right">
+  <tr>
+    <td>
+      Simulação de <br>ações do utilizador<br>
+      (Não faz parte <br> da interface)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="botoes_simulacoes/botao_colocar_copo.png" id="bot" id="colocar_copo" style="cursor:pointer" onclick="encherCopo();toggleVisible('elem');">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="botoes_simulacoes/botao_esvaziar_copo.png" id="bot" id="esvaziar_copo" style="cursor:pointer" onclick="esvaziarCopo();copo('elem','mais_1_left','mais_1');">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="botoes_simulacoes/botao_telemovel.png" id="bot" id="colocar_tlm" style="cursor:pointer" onclick="toggleVisible('elem_tlm');telemovel('elem_tlm','telemovelDados_left','telemovelDados_right');">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="botoes_simulacoes/botao_maco.png" id="bot" id="colocar_maco" style="cursor:pointer" onclick="toggleVisible('elem_maco');maco('elem_maco','cinzeiro_left','cinzeiro_right');">
+    </td>
+  </tr>
+</table>
+  
+</body>
+</html>

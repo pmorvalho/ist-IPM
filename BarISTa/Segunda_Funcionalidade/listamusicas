@@ -1,0 +1,362 @@
+<div id="browse_tab">
+  <span> TOP </span>
+  <table>
+    <div id="HH" style="display:none">
+     <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Drake, The Throne - Pop Style (3:29)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Drake, The Throne - Pop Style (3:29)"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Kanye West - Waves (2:56)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Kanye West - Waves (2:56)')"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Rae Sremmurd, Look Alive (3:48)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Rae Sremmurd, Look Alive (3:48)')"> </img>
+          </div>
+        </td> </tr>
+  </div>
+
+
+
+
+
+
+  <div id="pop" style="display:none">
+     <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Snakehips - All My Friends (3:49)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Snakehips - All My Friends (3:49)')"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Ariana Grande - Dangerous Woman (3:56)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Ariana Grande - Dangerous Woman (3:56)')"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Meghan Trainor - NO (3:34)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Meghan Trainor - NO (3:34)')"> </img>
+          </div>
+        </td> </tr>
+
+  </div>
+
+
+
+
+
+
+
+  <div id="party" style="display:none">
+    <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Calvin Harris, The Disciples - How Deep Is Your Love (3:33)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Calvin Harris, The Disciples - How Deep Is Your Love (3:33)')"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Kygo - Firestone (4:33)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Kygo - Firestone (4:33)')"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Jack U, Diplo, Skrillex - Where Are U Now (5:08)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Chopin, Fantasie-Impromptu, opus 66 (5:08)')"> </img>
+          </div>
+        </td> </tr>
+   </div>
+
+
+
+
+
+
+
+
+  <div id="rock" style="display:none">
+     <tr> <td>
+       <div id="songs">
+         <span id="song_title"> Somewhere Beyond The Sea - Kevin Spacey (3:33)</span>
+         <img src="plus.png" id="add_song" onclick="addSong(this, 'Somewhere Beyond The Sea - Kevin Spacey (3:33)')"> </img>
+       </div>
+     </td> </tr>
+
+     <tr> <td>
+       <div id="songs">
+         <span id="song_title"> Fly Me to The Moon - Frank Sinatra (2:14)</span>
+         <img src="plus.png" id="add_song" onclick="addSong(this, 'Fly Me to The Moon - Frank Sinatra (2:14)')"> </img>
+       </div>
+     </td> </tr>
+
+     <tr> <td>
+       <div id="songs">
+         <span id="song_title"> Garota de Ipanema - Caetano Veloso (2:35)</span>
+         <img src="plus.png" id="add_song" onclick="addSong(this, 'Garota de Ipanema - Caetano Veloso (2:35)')"> </img>
+       </div>
+     </td> </tr>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div id="jazz" style="display:none">
+    <tr> <td>
+      <div id="songs">
+        <span id="song_title"> Somewhere Beyond The Sea - Kevin Spacey (3:33)</span>
+        <img src="plus.png" id="add_song" onclick="addSong(this, 'Somewhere Beyond The Sea - Kevin Spacey (3:33)')"> </img>
+      </div>
+    </td> </tr>
+
+    <tr> <td>
+      <div id="songs">
+        <span id="song_title"> Fly Me to The Moon - Frank Sinatra (2:14)</span>
+        <img src="plus.png" id="add_song" onclick="addSong(this, 'Fly Me to The Moon - Frank Sinatra (2:14)')"> </img>
+      </div>
+    </td> </tr>
+
+    <tr> <td>
+      <div id="songs">
+        <span id="song_title"> Garota de Ipanema - Caetano Veloso (2:35)</span>
+        <img src="plus.png" id="add_song" onclick="addSong(this, 'Garota de Ipanema - Caetano Veloso (2:35)')"> </img>
+      </div>
+    </td> </tr>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div id="Chill" style="display:none">
+    <tr> <td>
+          <div id="songs">
+            <span id="song_title"> James Bay - Let It Go (4:21)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'James Bay - Let It Go (4:21)')"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Bryson Tyler - Don't (3:35)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Bryson Tyler - Don't (3:35)')"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Angel Snow - These Days (4:41)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Chopin, Fantasie-Impromptu, opus 66 (5:08)')"> </img>
+          </div>
+        </td> </tr>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div id="Classic" style="display:none">
+    <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Chopin, Fantasie-Impromptu, opus 66 (5:08)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Chopin, Fantasie-Impromptu, opus 66 (5:08)')"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Debussy - Clair de lune (5:07</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Debussy - Clair de lune (5:07')"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Richard Wagner - Ride Of The Valkyries (5:00)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Richard Wagner - Ride Of The Valkyries (5:00)')"> </img>
+          </div>
+        </td> </tr>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div id="RnB" style="display:none">
+   <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Bryson Tyler - Exchange (3:31)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Bryson Tyler - Exchange (3:31)')"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> dvsn - Too Deep (3:20)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'dvsn - Too Deep (3:20)')"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> K. Michelle - Not A Little Bit (3:28)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'K. Michelle - Not A Little Bit (3:28)')"> </img>
+          </div>
+        </td> </tr>
+  </div>
+
+
+
+
+
+
+
+
+
+  <div id="Soul" style="display:none">
+    <tr> <td>
+          <div id="songs">
+            <span id="song_title"> A Tribe Called Quest - Electric Relaxation (3:46)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'A Tribe Called Quest - Electric Relaxation (3:46)')"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Emily King - Good Friend (2:38)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Emily King - Good Friend (2:38)')"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> One Self - Blue Bird (3:40)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'One Self - Blue Bird (3:40)')"> </img>
+          </div>
+        </td> </tr>
+  </div>
+
+
+
+
+
+
+
+
+
+  <div id="Decades" style="display:none">
+    <tr> <td>
+          <div id="songs">
+            <span id="song_title"> AC/DC - You Shook Me All Night Long (3:30)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'AC/DC - You Shook Me All Night Long (3:30)')"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Wham! - Wake Me Up Before You Go-Go (3:50)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Wham! - Wake Me Up Before You Go-Go (3:50)')"> </img>
+          </div>
+        </td> </tr>
+
+
+        <tr> <td>
+          <div id="songs">
+            <span id="song_title"> Survivor - Eye Of The Tiger (4:03)</span>
+            <img src="plus.png" id="add_song" onclick="addSong(this, 'Survivor - Eye Of The Tiger (4:03)')"> </img>
+          </div>
+        </td> </tr>
+  </div>
+
+
+
+
+
+
+
+
+
+    <tr> <td>
+      <span> <br>GÉNEROS </span>
+      <div id="estilos">
+  <div  id="generos_primeiros">
+    <img src="HH.png" id="fotos_estilos"> </img>
+    <img src="pop.png" id="fotos_estilos"> </img>
+    <img src="PARTY.png" id="fotos_estilos"> </img>
+    <img src="ROCK.png" id="fotos_estilos"> </img>
+    <img src="JAZZ.png" id="fotos_estilos"> </img>
+    <img src="prox_generos.png" id="prox_generos_right" style="cursor:pointer" onclick="toggleGeneros('generos_segundos','generos_primeiros')"> </img>
+        </div>
+
+        <div id="generos_segundos">
+    <img src="prox_generos.png" id="prox_generos_left" style="cursor:pointer" onclick="toggleGeneros('generos_primeiros','generos_segundos')"> </img>
+    <img src="CHILL.png" id="fotos_estilos_2"> </img>
+    <img src="Classical.png" id="fotos_estilos_2"> </img>
+    <img src="RnB.png" id="fotos_estilos_2"> </img>
+    <img src="Soul.png" id="fotos_estilos_2"> </img>
+    <img src="Decades.png" id="fotos_estilos_2"> </img>
+  </div>
+      </div>
+    </td> </tr>
+  </table>
+</div>
+§

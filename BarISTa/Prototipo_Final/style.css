@@ -1,0 +1,794 @@
+body {
+  font-family: Sans-Serif;
+  background-color: white;
+  overflow: hidden;
+}
+
+#home_screen {
+  position: absolute;
+  width: 89.5%;
+  height: 98vh;
+}
+
+.firstHELP {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#barra_limite_right {
+  position: absolute;
+  background-color: white;
+  right: 0;
+  width: 9.6%;
+  height: 100%;
+  z-index: 1000000;
+}
+
+#barra_limite_down {
+  position: absolute;
+  background-color: white;
+  bottom: 0;
+  width: 100%;
+  height: 1.2%;
+  z-index: 1000000;
+}
+
+#grad {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 200%;
+  height: 100%;
+  z-index: 601;
+}
+
+#main_help {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 60%;
+  height: 61.5%;
+  z-index: 602;
+}
+
+#botoes_out {
+  position: absolute;
+  right: 0;
+  z-index: 1000000;
+}
+
+#mesa {
+  position: absolute;
+  width: 90%;
+  height: 98vh;
+	background: url("imagens_gerais/fundo.png");
+}
+
+#c-circle-nav {
+  position: absolute;
+  right: 1%;
+  bottom: 2%;
+}
+
+#div_help{
+  height: 12%;
+  width: 6.7%;
+  position: absolute;
+  right: 0.5%;
+  top:1%;
+}
+
+#help_bt{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#bot{
+  width: 15vh;
+  height: 15vh;
+}
+
+#container{
+  position: absolute;
+}
+
+#elem, #elem_tlm, #elem_maco{
+    position: absolute;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    width: 15vh;
+    height: 15vh;
+    z-index: 900000;
+}
+
+#copo_layer{
+  position: relative;
+  background: url("corpos/full_glass.png");
+  background-repeat: no-repeat;
+  background-size: 20vh 20vh;
+}
+
+#tlm_layer{
+  position: relative;
+  background: url("corpos/iPhone.png");
+  background-repeat: no-repeat;
+  background-size: 25vh 40vh;
+}
+
+#maco_layer{
+  position: relative;
+  background: url("corpos/marlboro.png");
+  background-repeat: no-repeat;
+  background-size: 30vh 30vh;
+}
+
+#mais_1{
+  background: url("corpos/deseja_+1.png");
+  background-repeat: no-repeat;
+  background-size: 20vh 20vh;
+}
+
+#mais_1_left{
+  position: relative;
+  right: 41vh;
+  background: url("corpos/deseja_+1.png");
+  background-repeat: no-repeat;
+  background-size: 20vh 20vh;
+}
+
+#telemovelDados_right{
+  background: url("corpos/iPhone_button.png");
+  background-repeat: no-repeat;
+  background-size: 20vh 20vh;
+}
+
+#telemovelDados_left{
+  position: relative;
+  right: 50vh;
+  background: url("corpos/iPhone_button.png");
+  background-repeat: no-repeat;
+  background-size: 20vh 20vh;
+}
+
+#cinzeiro_right{
+  background: url("corpos/cinzeiro_button.png");
+  background-repeat: no-repeat;
+  background-size: 20vh 20vh;
+}
+
+#cinzeiro_left{
+  position: relative;
+  right: 45vh;
+  background: url("corpos/cinzeiro_button.png");
+  background-repeat: no-repeat;
+  background-size: 20vh 20vh;
+}
+
+#tick, #cross{
+  height: 7vh;
+  width: 7vh;
+  position: relative;
+  top: 18vh;
+}
+
+#tick{
+  left: 3vh;
+}
+
+
+/*--------------------------------------Music--------------------------------------*/
+.music_window{
+  background-color:#F0FFFF;
+  margin:0px auto;
+  width:80%;
+  height:85%;
+  box-shadow: 10px 10px 45px 15px #000;
+  position: absolute;
+}
+
+#barra_cima{
+  position: relative;
+  background-color: #419CBD;
+  color: black;
+  font-size: 300%;
+}
+
+#barra_left{
+  position: relative;
+  background-color:#419CBD;
+  color: black;
+  width:13.1%;
+  padding-bottom:52.35%;
+}
+
+#browse_bt, #playlist_bt{
+  position: absolute;
+  width: 75%;
+  height: 23%;
+  padding-top: 10vh;
+  padding-bottom: 11vh;
+  padding-left: 2.5vh;
+  padding-right: 2.3vh;
+  /*outline: 5px solid red;*/
+}
+
+#browse_bt{
+  background-color: #F0FFFF;
+}
+
+#playlist_bt{
+  background-color:#419CBD;
+  bottom: 0;
+}
+
+.close_music{
+  height: 3.5%;
+  width: 3.5%;
+  position: relative;
+  left: 96%;
+  top: 0.3vh;
+}
+
+.music_help_bt{
+  height: 3.5%;
+  width: 3.5%;
+  position: relative;
+  left: 87%;
+  top: 0.3vh;
+}
+
+#titulo_musica{
+  position: absolute;
+  left:2%;
+}
+
+#nowPlaying, #barra_nowPlaying{
+  background-color: #F0FFFF;
+  position: absolute;
+  height: 5.9%;
+  top: 8%;
+  left: 15%;
+  font-size: 35px;
+}
+
+#nowPlaying {
+  width: 17%;
+}
+
+#barra_nowPlaying{
+  width: 85%;
+}
+
+#browse_img{
+  width: 13.5vh;
+  height: 17vh;
+}
+
+#playlist_img{
+  width: 14vh;
+  height: 15vh;
+}
+
+#browse_tab, #playlist_tab{
+  background-color: #F0FFFF;
+  position: absolute;
+  height: 85%;
+  width: 85%;
+  top: 15%;
+  left: 15%;
+  font-size: 35px;
+}
+
+.songs{
+  background-color: #419CBD;
+  height: 6vh;
+  width: 120vh;
+  font-size: 35px;
+  border: 2px solid black;
+  position: relative;
+}
+
+#song_title, #user_song{
+  position: relative;
+  top: 0.7vh;
+}
+
+#add_song{
+  top: 6%;
+  left: 95%;
+  height: 5vh;
+  width: 5vh;
+  position: absolute;
+}
+
+#fotos_estilos, #fotos_estilos_2{
+  width: 20vh;
+  height: 20vh;
+  -webkit-filter: brightness(200%); /* Chrome, Safari, Opera */
+  filter: brightness(200%);
+}
+
+#generos_segundos{
+  display:none;
+}
+
+#prox_generos_right, #prox_generos_left{
+  width: 15vh;
+  height: 20vh;
+}
+
+#prox_generos_left{
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+#browse_title {
+  font-size: 40px;
+  color: #696969;
+}
+
+
+.scroll-left {
+ height: 10px;
+ overflow: hidden;
+ position: relative;
+}
+
+.scroll-left p {
+ position: relative;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: left;
+ /* Starting position */
+ -moz-transform:translateX(50%);
+ -webkit-transform:translateX(50%);
+ transform:translateX(50%);
+ /* Apply animation to this element */
+ -moz-animation: scroll-left 10s linear infinite;
+ -webkit-animation: scroll-left 10s linear infinite;
+ animation: scroll-left 10s linear infinite;
+}
+
+/* Move it (define the animation) */
+@-moz-keyframes scroll-left {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-50%); }
+}
+@-webkit-keyframes scroll-left {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-50%); }
+}
+@keyframes scroll-left {
+ 0%   {
+ -moz-transform: translateX(100%); /* Browser bug fix */
+ -webkit-transform: translateX(100%); /* Browser bug fix */
+ transform: translateX(100%);
+ }
+ 100% {
+ -moz-transform: translateX(-50%); /* Browser bug fix */
+ -webkit-transform: translateX(-50%); /* Browser bug fix */
+ transform: translateX(-50%);
+ }
+}
+
+/*-------------------------------------/Music--------------------------------------*/
+
+
+
+
+/* ------------------------------------Pedido--------------------------------------*/
+.pedido_window{
+  background-color:#F0FFFF;
+  margin:0px auto;
+  height:87%;
+  width:88%;
+  box-shadow: 10px 10px 45px 15px #000;
+  position: absolute;
+}
+
+#barra_cima_pedido{
+  position: relative;
+  background-color: #419CBD;
+  color: black;
+  font-size: 300%;
+}
+
+#barra_left_pedido{
+  position: relative;
+  background-color:#419CBD;
+  color: black;
+  width:11.8%;
+  height: 92.7%;
+}
+
+#comida_bt, #bebida_bt{
+  position: absolute;
+  width: 74.5%;
+  height: 25%;
+  padding-top: 10vh;
+  padding-bottom: 11vh;
+  padding-left: 2.5vh;
+  padding-right: 2.3vh;
+}
+
+#bebida_bt{
+  top: 0;
+  background-color: #F0FFFF;
+}
+
+#comida_bt{
+  bottom: 0;
+  /*top: 54.5%;*/
+}
+
+.close_pedido{
+  height: 3.05%;
+  width: 3.05%;
+  position: relative;
+  left: 96%;
+  top: 0.3vh;
+}
+
+.pedido_help_bt{
+  height: 3.05%;
+  width: 3.05%;
+  position: relative;
+  left: 88%;
+  top: 0.3vh;
+}
+
+#titulo_pedido{
+  position: absolute;
+  left:2%;
+}
+
+#comida_img{
+  width: 13.5vh;
+  height: 17vh;
+}
+
+#bebida_img{
+  width: 14vh;
+  height: 17vh;
+}
+
+#comida_tab, #bebida_tab{
+  background-color: #F0FFFF;
+  position: absolute;
+  height: 86.5%;
+  width: 85%;
+  top: 7.5%;
+  left: 14%;
+  font-size: 35px;
+}
+
+#pedido_title {
+  font-size: 40px;
+  color: #696969;
+}
+
+#fotos_comida, #fotos_comida_2, #fotos_bebida, #fotos_bebida_2{
+  width: 22.5vh;
+  height: 22.5vh;
+}
+
+#comidas_segundas, #bebidas_segundas{
+  position: relative;
+  top:5vh;
+}
+
+#resumo_pedido{
+  position: absolute;
+  font-size: 30px;
+  background-color: #F0FFFF;
+  width: 18%;
+  height: 92.7%;
+  right: 0;
+  /*top: 4.7%;*/
+  bottom: 0;
+  border-left-style: solid;
+}
+
+#PEDIR{
+  position: absolute;
+  width: 100%;
+  height: 7%;
+  background-color: #419CBD;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 30px;
+  color: #419CBD;
+  cursor: pointer;
+  right: 0;
+  bottom: 0;
+}
+
+/* Box styles */
+.todos_pedidos {
+  background-color: #F0FFFF;
+  font: 24px/36px sans-serif;
+  width: 100%;
+  height: 82%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 10px;
+  opacity: 0.7;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #696969;
+}
+
+#preco_TOTAL{
+  position: absolute;
+  right: 0;
+}
+
+.item_resumo{
+  position: relative;
+  background-color: #F0FFFF;
+  text-align: left;
+  width: 96%;
+  height: 6%;
+}
+
+.remove_pedido{
+  position: absolute;
+  top: 20%;
+  right: 2%;
+  height: 2vh;
+  width: 2vh;
+}
+
+.comidas, .bebidas{
+  background-color: #419CBD;
+  height: 6vh;
+  width: 103vh;
+  font-size: 35px;
+  border: 2px solid black;
+  position: relative;
+}
+
+#produto_title{
+  position: relative;
+  top: 0.7vh;
+}
+
+#produto_preco{
+  position: absolute;
+  top: 0.7vh;
+  right: 6%;
+}
+
+#adiciona_comida, #adiciona_bebida{
+  top: 6%;
+  left: 95%;
+  height: 5vh;
+  width: 5vh;
+  position: absolute;
+}
+/* ------------------------------------/Pedido--------------------------------------*/
+
+
+
+/*--------------------------------------POPUP--------------------------------------*/
+.popup, .popup_ajuda, .popup_confirmar_pedido, .popup_cancelar, .popup_chamar_empregado, .popup_confirmar_empregado, .popup_ajuda_musica, .popup_ajuda_pedido, .popup_sugestao_musica, .popup_sugestao_pedido{
+  position:fixed;
+  width:100%;
+  height:100%;
+  left:0px;
+  right:0px;
+  top: 0px;
+  bottom:0px;
+  background-color:rgba(3,3,3,0.8);
+  z-index: 200000;
+}
+
+.popupWindow{
+  background-color:white;
+  margin:0px auto;
+  width:40%;
+  min-width:400px;
+  min-height:300px;
+  margin-top:12%;
+  text-align: center;
+  -moz-border-radius: 50px 50px / 50px 50px;
+  border-radius: 50px 50px / 50px 50px;
+  box-shadow: 10px 10px 10px #000;
+}
+
+.popup_txt{
+  font-size:26px;
+  font-weight:bold;
+  margin:13px;
+  padding-top:10%;
+  color:black;
+}
+
+.popupWindow_ajuda {
+  background-color:white;
+  margin:0px auto;
+  width:60%;
+  height: 50%;
+  margin-top:12%;
+  text-align: center;
+  -moz-border-radius: 50px 50px / 50px 50px;
+  border-radius: 50px 50px / 50px 50px;
+  box-shadow: 10px 10px 10px #000;
+  position: relative;
+}
+
+.popup_txt_ajuda{
+  font-size:26px;
+  margin:13px;
+  padding-top:5%;
+  padding-left:2%;
+  padding-right:1.2%;
+  color:black;
+}
+
+.popup_img_yes,.popup_img_no{
+margin:20px;
+}
+
+#tick_help{
+  height: 7vh;
+  width: 7vh;
+  position: absolute;
+  top: 45vh;
+  right: 30%;
+}
+
+#tick_pedido, #cross_pedido{
+  height: 7vh;
+  width: 7vh;
+  position: absolute;
+  top: 45vh;
+}
+
+#tick_pedido{
+  right: 31%;
+}
+
+.OK_ajuda_musica{
+  height: 7vh;
+  width: 7vh;
+  position: absolute;
+  bottom: 6%;
+  right: 5%;
+}
+
+.OK_ajuda_pedido{
+  height: 7vh;
+  width: 7vh;
+  position: absolute;
+  bottom: 6%;
+  right: 5%;
+}
+
+#cross_pedido{
+  right: 36%;
+}
+/*-------------------------------------/POPUP--------------------------------------*/
+
+/*------------------------------------------more----------------------------------------------*/
+.more_re-item, .more_re-open-button {
+  border-radius: 100%;
+  width: 90px;
+  height: 90px;
+  margin-left: -40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  text-align: center;
+  line-height: 80px;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform ease-out 200ms;
+  transition: -webkit-transform ease-out 200ms;
+  transition: transform ease-out 200ms;
+  transition: transform ease-out 200ms, -webkit-transform ease-out 200ms;
+}
+
+.more_re-open {
+  display: none;
+}
+
+.more_re-item {
+  border-radius: 100%;
+  float: left;
+  border: 2px solid white;
+  -webkit-transform: scale(0.1, 0.1) translate3d(0, 0, 0);
+          transform: scale(0.1, 0.1) translate3d(0, 0, 0);
+}
+
+.more_re-item:hover {
+  border: 2px solid #c10012;
+}
+.more_re-item:nth-child(3) {
+  -webkit-transition-duration: 180ms;
+          transition-duration: 180ms;
+}
+.more_re-item:nth-child(4) {
+  -webkit-transition-duration: 180ms;
+          transition-duration: 180ms;
+}
+.more_re-item:nth-child(5) {
+  -webkit-transition-duration: 180ms;
+          transition-duration: 180ms;
+}
+.more_re-item:nth-child(6) {
+  -webkit-transition-duration: 180ms;
+          transition-duration: 180ms;
+}
+
+.more_re-open-button {
+  z-index: 2;
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-transition-duration: 400ms;
+          transition-duration: 400ms;
+  -webkit-transform: scale(0.9, 0.9) translate3d(-4px, 3.5px, 0);
+          transform: scale(0.9, 0.9) translate3d(-4px, 3.5px, 0);
+  cursor: pointer;
+}
+
+.more_re-open:checked + .more_re-open-button {
+  border: 4px solid white;
+  -webkit-transform: scale(1, 1) translate3d(0, 0, 0);
+          transform: scale(1, 1) translate3d(0, 0, 0);
+}
+
+.more_re-open:checked ~ .more_re-item {
+  -webkit-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+          transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.more_re-open:checked ~ .more_re-item:nth-child(3) {
+  -webkit-transition-duration: 190ms;
+          transition-duration: 190ms;
+  -webkit-transform: translate3d(-110px, 0, 0);
+          transform: translate3d(-110px, 0, 0);
+}
+.more_re-open:checked ~ .more_re-item:nth-child(4) {
+  -webkit-transition-duration: 290ms;
+          transition-duration: 290ms;
+  -webkit-transform: translate3d(-220px, 0, 0);
+          transform: translate3d(-220px, 0, 0);
+}
+.more_re-open:checked ~ .more_re-item:nth-child(5) {
+  -webkit-transition-duration: 390ms;
+          transition-duration: 390ms;
+  -webkit-transform: translate3d(-330px, 0, 0);
+          transform: translate3d(-330px, 0, 0);
+}
+.more_re-open:checked ~ .more_re-item:nth-child(6) {
+  -webkit-transition-duration: 490ms;
+          transition-duration: 490ms;
+  -webkit-transform: translate3d(-440px, 0, 0);
+          transform: translate3d(-440px, 0, 0);
+}
+
+/*--------------------------------------------------------------------------------------------*/

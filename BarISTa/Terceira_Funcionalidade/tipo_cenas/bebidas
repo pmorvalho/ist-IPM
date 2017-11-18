@@ -1,0 +1,315 @@
+<div id="Bebidas Brancas" style="display:none" class="head_browse">
+  <span id="pedido_title"> Bebidas </span> <span id="pedido_title" style="cursor:pointer"> > <br><br> </span> <span id="pedido_title"> Bebidas Brancas </span>
+<table>
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Branca 1 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Branca 2 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Branca 3 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Branca 4 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Branca 5 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Branca 6 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+</table>
+</div>
+
+
+
+
+
+
+<div id="Bebidas Quentes" style="display:none" class="head_browse">
+  <span id="pedido_title"> Bebidas </span> <span id="pedido_title" style="cursor:pointer"> > <br><br> </span> <span id="pedido_title"> Bebidas Quentes </span>
+<table>
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 1 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 2 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 3 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 4 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 5 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 6 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+</table>
+</div>
+
+
+
+
+<div id="Cervejas" style="display:none" class="head_browse">
+  <span id="pedido_title"> Bebidas </span> <span id="pedido_title" style="cursor:pointer"> > <br><br> </span> <span id="pedido_title"> Bebidas Quentes </span>
+<table>
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Super Bock  </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Super Bock Sem Alcool  </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Super Bock  </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Heineken </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Super Bock Preta </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Super Bock Bohemia </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+</table>
+</div>
+
+
+
+
+
+<div id="Bebidas Espirituais" style="display:none" class="head_browse">
+  <span id="pedido_title"> Bebidas </span> <span id="pedido_title" style="cursor:pointer"> > <br><br> </span> <span id="pedido_title"> Bebidas Espirituais </span>
+<table>
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 1 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 2 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 3 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 4 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 5 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 6 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+</table>
+</div>
+
+
+
+
+<div id="Refrigerantes" style="display:none" class="head_browse">
+<span id="pedido_title"> Bebidas </span> <span id="pedido_title" style="cursor:pointer"> > <br><br> </span> <span id="pedido_title"> Refrigerantes </span>
+<table>
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 1 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 2 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 3 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 4 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 5 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 6 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+</table>
+</div>
+
+
+
+
+
+
+
+
+<div id="Whiskeys" style="display:none" class="head_browse">
+<span id="pedido_title"> Bebidas </span> <span id="pedido_title" style="cursor:pointer"> > <br><br> </span> <span id="pedido_title"> Whiskeys </span>
+<table>
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 1 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 2 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 3 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 4 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 5 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+<tr> <td>
+<div class="bebidas">
+  <span id="produto_title"> Bebida Quente 6 </span>
+  <img src="plus.png" class="adiciona_bebidas" id="adiciona_bebida" onclick=""> </img>
+</div>
+</td> </tr>
+
+</table>
+</div>

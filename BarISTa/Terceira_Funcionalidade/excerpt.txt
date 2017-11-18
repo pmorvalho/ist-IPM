@@ -1,0 +1,55 @@
+<div id="barra_left_pedido">
+      <div id="comida_bt" style="cursor:pointer" onclick="toggleHighlight('comida_bt','comida_tab','bebida_bt', 'bebida_tab');changeFood('comida_home')"> <img src="img_pedido/ordercomida.png" id="comida_img"> </img> </div>
+      <div id="bebida_bt" style="cursor:pointer" onclick="toggleHighlight('bebida_bt', 'bebida_tab','comida_bt','comida_tab');changeDrink('bebida_home')"> <img src="img_pedido/orderbebida.png" id="bebida_img"> </img> </div>
+    </div>
+
+    <div id="comida_tab" align="left">
+    	<div id="comida_home" class="head_pedidos_food">
+	      	<span id="pedido_title"> Comidas <br><br> </span>
+	      	<div  id="comidas_primeiras">
+	          <img src="img_pedido/cashews.png" id="fotos_comida" style="cursor:pointer" onclick="changeFood('Aperitivos')"> </img> &nbsp;&nbsp;
+	          <img src="img_pedido/bolos.png" id="fotos_comida" style="cursor:pointer" onclick="changeFood('Bolos')"> </img> &nbsp;&nbsp;
+	          <img src="img_pedido/sandwich.png" id="fotos_comida" style="cursor:pointer" onclick="changeFood('Sandes')"> </img> &nbsp;&nbsp;
+	          <img src="img_pedido/Pburger.png" id="fotos_comida" style="cursor:pointer" onclick="changeFood('Hamburguesas')"> </img> &nbsp;&nbsp;
+	        </div>
+
+top e comida
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bebidas
+
+
+
+
+    	<div id="bebida_home" class="head_pedidos_drink">
+	      	<span id="pedido_title"> Bebidas <br><br> </span>
+	      	<div  id="bebidas_primeiras">
+	          <img src="img_pedido/bebidasbrancas.png" id="fotos_bebida" style="cursor:pointer" onclick="changeDrink('Bebidas Brancas')"> </img> &nbsp;&nbsp;
+	          <img src="img_pedido/Bquentes.png" id="fotos_bebida" style="cursor:pointer" onclick="changeDrink('Bebidas Quentes')"> </img> &nbsp;&nbsp;
+	          <img src="img_pedido/cervejas.png" id="fotos_bebida" style="cursor:pointer" onclick="changeDrink('Cervejas')"> </img> &nbsp;&nbsp;
+	          <img src="img_pedido/espirituosas.png" id="fotos_bebida" style="cursor:pointer" onclick="changeDrink('Bebidas Espirituais')"> </img> &nbsp;&nbsp;
+	        </div>
+
+	        <div id="bebidas_segundas">
+	          <img src="img_pedido/ref.png" id="fotos_bebida_2" style="cursor:pointer" onclick="changeDrink('Refrigerantes')"> </img> &nbsp;&nbsp;
+	          <img src="img_pedido/whiskies.png" id="fotos_bebida_2" style="cursor:pointer" onclick="changeDrink('Whiskeys')"> </img> &nbsp;&nbsp;
+	         
+	        </div>
+	      </div>
+
+

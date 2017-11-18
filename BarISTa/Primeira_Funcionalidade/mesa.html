@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="index.png" />
+<title>BarISTa</title>
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="canto/css/circle-menu.min.css">
+
+<script src='jquery.min.js'></script>
+<script src="scripts.js"></script>
+
+<script src="corpos/corpos.js"></script>
+
+<script>
+ 
+$(document).ready(function(){
+ 
+    $( ".popup_img_yes" ).click(function() {
+                $( ".popup" ).fadeOut( 700 );
+  });
+ 
+  $( ".popup_img_no" ).click(function() {
+                $( ".popup" ).fadeOut( 700 );
+  });
+
+  $( ".tick_bt" ).click(function() {
+                $( ".popup" ).fadeIn( 700 );
+  });
+ 
+});
+ 
+</script>
+
+</head>
+
+<body style="font-family:calibri; text-align: center;" >
+
+<table id="botoes_out" align="right">
+  <tr>
+    <td>
+      Simula&ccedil;&atilde;o de <br>a&ccedil;&otilde;es do utilizador<br>
+      (N&atilde;o faz parte <br> da interface)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="botao_colocar_copo.png" id="bot" id="colocar_copo" style="cursor:pointer" onclick="encherCopo();toggleVisible('elem');">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="botao_esvaziar_copo.png" id="bot" id="esvaziar_copo" style="cursor:pointer" onclick="esvaziarCopo();copo('elem','mais_1_left','mais_1');">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="botao_telemovel.png" id="bot" id="colocar_tlm" style="cursor:pointer" onclick="toggleVisible('elem_tlm');telemovel('elem_tlm','telemovelDados_left','telemovelDados_right');">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="botao_maco.png" id="bot" id="colocar_maco" style="cursor:pointer" onclick="toggleVisible('elem_maco');maco('elem_maco','cinzeiro_left','cinzeiro_right');">
+    </td>
+  </tr>
+</table>
+
+<div id="mesa">
+  <nav id="c-circle-nav" class="c-circle-nav">
+    <button id="c-circle-nav__toggle" class="c-circle-nav__toggle">
+      <span>Toggle</span>
+    </button>
+    <ul class="c-circle-nav__items">
+      <li class="c-circle-nav__item">
+        <nav href="#" class="c-circle-nav__link">
+          <input type="checkbox" href="#" class="more_re-open" name="more_re-open" id="more_re-open" />
+          
+          <label class="more_re-open-button" for="more_re-open">
+            <img src="canto/img/more_ret.png" alt="">
+          </label>
+
+          <a href="#" class="more_re-item"> <i class="fa fa-bar-chart"> <img src="canto/img/alcool.png" alt=""> </i> </a>
+          <a href="#" class="more_re-item"> <i class="fa fa-plus"> <img src="canto/img/Bus.png" alt=""> </i> </a>
+          <a href="#" class="more_re-item"> <i class="fa fa-heart"></i><img src="canto/img/wc.png" alt=""> </a>
+          <a href="#" class="more_re-item"> <i class="fa fa-envelope"></i> <img src="canto/img/options.png" alt=""></a>
+        </nav>
+      </li>
+      <li class="c-circle-nav__item">
+        <a href="#" class="c-circle-nav__link">
+          <img src="canto/img/music.png" alt="">
+        </a>
+      </li>
+      <li class="c-circle-nav__item">
+        <a href="#" class="c-circle-nav__link">
+          <img src="canto/img/order.png" alt="">
+        </a>
+      </li>
+      <li class="c-circle-nav__item">
+        <a href="#" class="c-circle-nav__link">
+          <img src="canto/img/pay.png" alt="">
+        </a>
+      </li>
+      <li class="c-circle-nav__item">
+        <a href="#" class="c-circle-nav__link">
+          <img src="canto/img/waiter.png" alt="">
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+
+  <script src="canto/js/circleMenu.min.js"></script>
+  
+  <div id='container' style="">
+      <div id="elem" onmousedown='mydragg.startMoving(this,"container",event);' onmouseup='mydragg.stopMoving("container");' style="width: 200px;height: 100px; display:none">
+        <table>
+          <tr>
+            <td> <div id="copo_layer" style='width:18vh;height:18vh;padding:9px;' onmouseup="copo('elem','mais_1_left','mais_1');"> </div> </td>
+
+            <td> 
+	      <div id="mais_1_left" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" id="cross" onclick="toggleVisible('mais_1_left');"> </td>
+                    <td> <img src="tick.png" id="tick" class="tick_bt" onclick="toggleVisible('mais_1_left');"> </td>
+                  </tr>
+                </table>
+              </div>
+            </td> 
+
+            <td>
+	      <div id="mais_1" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" id="cross" onclick="toggleVisible('mais_1');"> </td>
+		    <td> <img src="tick.png" id="tick" class="tick_bt" onclick="toggleVisible('mais_1');"> </td>       
+		  </tr>
+		</table>
+              </div>
+            </td>
+            
+	  </tr>
+        </table>
+      </div>
+    
+    <div id="elem_tlm" onmousedown='mydragg.startMoving(this,"container",event);' onmouseup='mydragg.stopMoving("container");' style="width: 200px;height: 100px;display:none">
+        <table>
+          <tr>
+            <td> <div id="tlm_layer" style='width:25vh;height:40vh;padding:9px;' onmouseup="telemovel('elem_tlm','telemovelDados_left','telemovelDados_right');"> </div> </td>
+
+            <td> 
+	      <div id="telemovelDados_left" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" id="cross" onclick="toggleVisible('telemovelDados_left');tratarTlm();"> </td>
+                    <td> <img src="tick.png" id="tick" class="tick_bt" onclick="toggleVisible('telemovelDados_left');tratarTlm();"> </td>
+                  </tr>
+                </table>
+              </div>
+            </td> 
+
+            <td>
+	      <div id="telemovelDados_right" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" id="cross" onclick="toggleVisible('telemovelDados_right');tratarTlm();"> </td>
+		    <td> <img src="tick.png" id="tick" class="tick_bt" onclick="toggleVisible('telemovelDados_right');tratarTlm();"> </td>       
+		  </tr>
+		</table>
+              </div>
+            </td>
+            
+	  </tr>
+        </table>
+      </div>
+    
+    <div id="elem_maco" onmousedown='mydragg.startMoving(this,"container",event);' onmouseup='mydragg.stopMoving("container");' style="width: 200px;height: 100px;display:none">
+        <table>
+          <tr>
+            <td> <div id="maco_layer" style='width:25vh;height:30vh;padding:9px;' onmouseup="maco('elem_maco','cinzeiro_left','cinzeiro_right');"> </div> </td>
+
+            <td> 
+	      <div id="cinzeiro_left" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" id="cross" onclick="toggleVisible('cinzeiro_left');tratarMaco();"> </td>
+                    <td> <img src="tick.png" id="tick" class="tick_bt" onclick="toggleVisible('cinzeiro_left');tratarMaco();"> </td>
+                  </tr>
+                </table>
+              </div>
+            </td> 
+
+            <td>
+	      <div id="cinzeiro_right" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" id="cross" onclick="toggleVisible('cinzeiro_right');tratarMaco();"> </td>
+		    <td> <img src="tick.png" id="tick" class="tick_bt" onclick="toggleVisible('cinzeiro_right');tratarMaco();"> </td>       
+		  </tr>
+		</table>
+              </div>
+            </td>
+            
+	  </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="popup" style="display:none"> <!-- popup content start || copy this to the end of the file-->
+      <div class="popupWindow">
+        <div class="popup_txt">
+          O seu pedido está a ser processado.
+          Aguarde um momento. Obrigado!
+        </div>
+        <div class="popup_img">
+          <img src="tick.png" id="cross" class="popup_img_yes"/>
+          <!-- <img src="cross.png" id="cross" class="popup_img_no"/> -->
+        </div>
+      </div>
+    </div>  <!-- popup content ends -->
+
+  </div>
+
+</body>
+</html>

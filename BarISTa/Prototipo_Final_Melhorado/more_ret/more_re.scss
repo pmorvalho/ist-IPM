@@ -1,0 +1,75 @@
+@import "compass/css3";
+
+//vars
+$fg:Grey;
+$bg:blue;
+
+//config
+$more_re-items:4;
+
+body{
+  background:$bg;
+  color:white;
+  text-align:center;
+}
+
+%ball{
+  border-radius:100%;
+  width:90px;
+  height:90px;
+  margin-left:-40px;
+  position:absolute;
+  top: 0;
+  right: 0;
+  color:white;
+  text-align:center;
+  line-height:80px;
+  transform:translate3d(0,0,0);
+  transition:transform ease-out 200ms;
+}
+.more_re-open{
+  display:none;
+}
+.more_re-item{
+  @extend %ball;
+  border-radius: 100%;
+  float: left;
+  border: 2px solid white;
+  transform:scale(.1,.1) translate3d(0,0,0);
+}
+
+.more_re-item{
+  &:hover{
+    border: 2px solid #c10012;
+  }
+  @for $i from 1 through $more_re-items{
+    &:nth-child(#{$i+2}){
+      transition-duration:180ms;
+    }
+  }
+}
+
+.more_re-open-button{
+  @extend %ball;
+  z-index:2;
+  transition-timing-function:cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-duration:400ms;
+  transform:scale(0.9,0.9) translate3d(-4px,3.5px,0);
+  cursor:pointer;
+}
+
+.more_re-open:checked+.more_re-open-button{
+  border: 4px solid white;
+  transform:scale(1,1) translate3d(0,0,0);
+}
+
+.more_re-open:checked~.more_re-item{
+  transition-timing-function:cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  @for $i from 1 through $more_re-items{
+
+    &:nth-child(#{$i+2}){
+      transition-duration:90ms+(100ms*$i);
+      transform:translate3d(-110px*$i,0,0);
+    }
+  }
+}

@@ -1,0 +1,44 @@
+
+            <td> <div id="telemovelMesa" class="telemovel" style='width:18vh;height:18vh;padding:9px;' onmouseup="telemovel('elem','telemovelDados_left','telemovelDados_right');"> </div> </td>
+            <td> 
+              <div id="telemovelDados_left" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" class="bot_redondo" id="cross_telemovel" onclick="toggleVisible('telemovelDados_left');"> </td>
+                    <td> <img src="tick.png" class="bot_redondo" id="tick_telemovel" class="tlm" onclick="toggleVisible('telemovelDados_left');"> </td>
+                  </tr>
+                </table>
+              </div>
+            </td> 
+
+            <td>
+              <div id="telemovelDados_right" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" class="bot_redondo" id="cross_telemovel" onclick="toggleVisible('telemovelDados_right');"> </td>
+                    <td> <img src="tick.png" class="bot_redondo" id="tick_telemovel" class="tlm" onclick="toggleVisible('telemovelDados_right');"> </td>
+		  </tr>
+                </table>
+              </div>
+            </td>
+            
+            
+            
+           <td> <div id="MacoMesa" class="telemovel" style='width:18vh;height:18vh;padding:9px;' onmouseup="copo('elem','cinzeiro_left','cinzeiro_right');"> </div> </td>
+            <td> 
+              <div id="cinzeiro_left" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" id="cross" onclick="toggleVisible('cinzeiro_left');"> </td>
+                    <td> <img src="tick.png" id="tick" class="tlm" onclick="toggleVisible('cinzeiro_left');"> </td>
+                  </tr>
+                </table>
+              </div>
+            </td> 
+
+            <td>
+              <div id="cinzeiro_right" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" id="cross" onclick="toggleVisible('cinzeiro_right');"> </td>
+                    <td> <img src="tick.png" id="tick" class="tlm" onclick="toggleVisible('cinzeiro_right');"> </td>

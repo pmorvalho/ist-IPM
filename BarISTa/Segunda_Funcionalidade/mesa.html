@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="index.png" />
+<title>BarISTa</title>
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="canto/css/circle-menu.min.css">
+
+<script src='jquery.min.js'></script>
+<script src="scripts.js"></script>
+
+<script src="corpos/corpos.js"></script>
+
+<script src="barra.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+  $( ".popup_img_yes" ).click(function() {
+                $( ".popup_ajuda" ).fadeOut( 700 );
+  });
+
+  $( ".help_btn" ).click(function() {
+                $( ".popup_ajuda" ).fadeIn( 700 );
+  });
+
+  // $( ".popup_img_no" ).click(function() {
+  //               $( ".popup" ).fadeOut( 700 );
+  // });
+
+  $( ".tick_bt" ).click(function() {
+                $( ".popup" ).fadeIn( 700 );
+                perc = 0;
+                animateUpdate(".popup");
+  });
+
+  $( ".home" ).click(function() {
+                $( ".home" ).fadeOut( 700 );
+                $( ".mesaa" ).fadeIn( 1000 );
+  });
+
+  $( ".music_bt" ).click(function() {
+                $( ".music_window" ).fadeIn( 700 );
+  });
+
+  $( ".close_music" ).click(function() {
+                $( ".music_window" ).fadeOut( 700 );
+  });
+
+});
+
+</script>
+
+</head>
+
+<body style="font-family:calibri; text-align: left;" >
+
+<img id="home_screen" border="0" src="home.png" class="home">
+
+<table id="botoes_out" align="right">
+  <tr>
+    <td>
+      Simulação de <br>ações do utilizador<br>
+      (Não faz parte <br> da interface)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="botao_colocar_copo.png" id="bot" id="colocar_copo" style="cursor:pointer" onclick="encherCopo();toggleVisible('elem');">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="botao_esvaziar_copo.png" id="bot" id="esvaziar_copo" style="cursor:pointer" onclick="esvaziarCopo();copo('elem','mais_1_left','mais_1');">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="botao_telemovel.png" id="bot" id="colocar_tlm" style="cursor:pointer" onclick="toggleVisible('elem_tlm');telemovel('elem_tlm','telemovelDados_left','telemovelDados_right');">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="botao_maco.png" id="bot" id="colocar_maco" style="cursor:pointer" onclick="toggleVisible('elem_maco');maco('elem_maco','cinzeiro_left','cinzeiro_right');">
+    </td>
+  </tr>
+</table>
+
+<div id="mesa" class="mesaa" style="display:none">
+  <div id="div_help" align="left">
+    <img src="help.png" id="help_bt" style="cursor:pointer" class="help_btn"> </img>
+  </div>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - MUSIC STARTS HERE - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <div class="music_window" align="left" style="display:none">
+    <!-- Meter cenas da musica aqui -->
+    <div id="barra_cima">
+      <span id="titulo_musica"> Música </span>
+      <img src="close_window.png" class="close_music"/>
+    </div>
+
+    <div id="barra_left">
+      <div id="browse_bt" style="cursor:pointer" onclick="changeGenre('TOP');toggleHighlight('browse_bt','browse_tab','playlist_bt', 'playlist_tab')"> <img src="browse.png" id="browse_img"> </img> </div>
+      <div id="playlist_bt" style="cursor:pointer" onclick="toggleHighlight('playlist_bt', 'playlist_tab','browse_bt','browse_tab')"> <img src="playlist.png" id="playlist_img"> </img> </div>
+    </div>
+    
+    <div id="barra_nowPlaying" class="scroll-left">
+      <p> Frank Ocean  &nbsp; <b>Novacane</b> &nbsp; nostalgia, ULTRA</p>
+    </div>
+
+    <div id="nowPlaying">
+      <span id="titulo_musica"> A reproduzir: </span>
+    </div>
+    
+    <div id="browse_tab">
+
+      <div id="TOP" class="head_browse">
+	<span id="browse_title"> TOP </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Kevin Spacey - Somewhere Beyond The Sea (3:33)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Kevin Spacey - Somewhere Beyond The Sea (3:33)')"> </img>
+	    </div>
+	  </td> </tr>
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Frank Sinatra - Fly Me to The Moon (2:14)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Frank Sinatra - Fly Me to The Moon (2:14)')"> </img>
+	    </div>
+	  </td> </tr>
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Caetano Veloso - Garota de Ipanema (2:35)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Caetano Veloso - Garota de Ipanema (2:35)')"> </img>
+	    </div>
+	  </td> </tr>
+        </table>
+      </div>
+       
+      <div id="HH" class="head_browse" style="display:none">
+	<span id="browse_title"> Hip Hop </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Drake, The Throne - Pop Style (3:29)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Drake, The Throne - Pop Style (3:29)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Kanye West - Waves (2:56)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Kanye West - Waves (2:56)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Rae Sremmurd - Look Alive (3:48)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Rae Sremmurd - Look Alive (3:48)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+      
+      <div id="pop" style="display:none" class="head_browse">
+	<span id="browse_title"> Pop </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Snakehips - All My Friends (3:49)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Snakehips - All My Friends (3:49)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Ariana Grande - Dangerous Woman (3:56)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Ariana Grande - Dangerous Woman (3:56)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Meghan Trainor - NO (3:34)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Meghan Trainor - NO (3:34)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+      
+      <div id="party" style="display:none" class="head_browse">
+	<span id="browse_title"> Party </span>
+        <table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Calvin Harris, The Disciples - How Deep Is Your Love (3:33)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Calvin Harris, The Disciples - How Deep Is Your Love (3:33)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Kygo - Firestone (4:33)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Kygo - Firestone (4:33)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Jack U, Diplo, Skrillex - Where Are U Now (5:08)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Chopin, Fantasie-Impromptu, opus 66 (5:08)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+
+      <div id="rock" style="display:none" class="head_browse">
+	<span id="browse_title"> Rock </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Deep Purple - Highway Star (5:40)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Deep Purple - Highway Star (5:40)')"> </img>
+	    </div>
+	  </td> </tr>
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> The Beatles - Lucy In The Sky With Diamonds (4:20)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'The Beatles - Lucy In The Sky With Diamonds (4:20)')"> </img>
+	    </div>
+	  </td> </tr>
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> The Doors - Break on Through (2:15)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'The Doors - Break on Through (2:15)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+
+      <div id="jazz" style="display:none" class="head_browse">
+	<span id="browse_title"> Jazz </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Louis Armstrontg - Blueberry Hill (2:45)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Louis Armstrontg - Blueberry Hill (2:45)')"> </img>
+	    </div>
+	  </td> </tr>
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> John Coltrane - Naima (7:23)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'John Coltrane - Naima (7:23)')"> </img>
+	    </div>
+	  </td> </tr>
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Chet Baker - Funny Valentine (4:17)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Chet Baker - Funny Valentine (4:17)')"> </img>
+	    </div>
+	  </td> </tr>
+	 </table>
+      </div>
+
+
+
+      <div id="Chill" style="display:none" class="head_browse">
+	<span id="browse_title"> Chill </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> James Bay - Let It Go (4:21)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'James Bay - Let It Go (4:21)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Bryson Tyler - Don't (3:35)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Bryson Tyler - Don't (3:35)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Angel Snow - These Days (4:41)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Chopin, Fantasie-Impromptu, opus 66 (5:08)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+
+      <div id="Classic" style="display:none" class="head_browse">
+	<span id="browse_title"> Classical </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Chopin - Fantasie-Impromptu, opus 66 (5:08)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Chopin - Fantasie-Impromptu, opus 66 (5:08)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title">  Debussy - Clair de lune (5:07)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Debussy - Clair de lune (5:07)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title">  Richard Wagner - Ride Of The Valkyries (5:00)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Richard Wagner - Ride Of The Valkyries (5:00)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+
+      <div id="RnB" style="display:none" class="head_browse">
+	<span id="browse_title"> RnB </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Bryson Tyler - Exchange (3:31)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Bryson Tyler - Exchange (3:31)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> dvsn - Too Deep (3:20)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'dvsn - Too Deep (3:20)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> K. Michelle - Not A Little Bit (3:28)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'K. Michelle - Not A Little Bit (3:28)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+      <div id="Soul" style="display:none" class="head_browse">
+	<span id="browse_title"> Soul </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> A Tribe Called Quest - Electric Relaxation (3:46)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'A Tribe Called Quest - Electric Relaxation (3:46)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Emily King - Good Friend (2:38)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Emily King - Good Friend (2:38)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> One Self - Blue Bird (3:40)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'One Self - Blue Bird (3:40)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+
+
+      <div id="Decades" style="display:none" class="head_browse">
+	<span id="browse_title"> Decades </span>
+	<table>
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> AC/DC - You Shook Me All Night Long (3:30)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'AC/DC - You Shook Me All Night Long (3:30)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Wham! - Wake Me Up Before You Go-Go (3:50)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Wham! - Wake Me Up Before You Go-Go (3:50)')"> </img>
+	    </div>
+	  </td> </tr>
+
+
+	  <tr> <td>
+	    <div class="songs">
+	      <span id="song_title"> Survivor - Eye Of The Tiger (4:03)</span>
+	      <img src="plus.png" class="add_songs" id="add_song" onclick="addSong(this, 'Survivor - Eye Of The Tiger (4:03)')"> </img>
+	    </div>
+	  </td> </tr>
+	</table>
+      </div>
+        
+	<br>
+        <tr> <td>
+          <span id="browse_title"> <br>Géneros </span>
+          <div id="estilos">
+	    <div  id="generos_primeiros">
+	      <img src="HH.png" id="fotos_estilos" style="cursor:pointer" onclick="changeGenre('HH')"> </img>
+	      <img src="pop.png" id="fotos_estilos" style="cursor:pointer" onclick="changeGenre('pop')"> </img>
+	      <img src="PARTY.png" id="fotos_estilos" style="cursor:pointer" onclick="changeGenre('party')"> </img>
+	      <img src="ROCK.png" id="fotos_estilos" style="cursor:pointer" onclick="changeGenre('rock')"> </img>
+	      <img src="JAZZ.png" id="fotos_estilos" style="cursor:pointer" onclick="changeGenre('jazz')"> </img>
+	      <img src="prox_generos.png" id="prox_generos_right" style="cursor:pointer" onclick="toggleGeneros('generos_segundos','generos_primeiros')"> </img>
+            </div>
+            
+            <div id="generos_segundos">
+	      <img src="prox_generos.png" id="prox_generos_left" style="cursor:pointer" onclick="toggleGeneros('generos_primeiros','generos_segundos')"> </img>
+	      <img src="CHILL.png" id="fotos_estilos_2" style="cursor:pointer" onclick="changeGenre('Chill')"> </img>
+	      <img src="Classical.png" id="fotos_estilos_2" style="cursor:pointer" onclick="changeGenre('Classic')"> </img>
+	      <img src="RnB.png" id="fotos_estilos_2" style="cursor:pointer" onclick="changeGenre('RnB')"> </img>
+	      <img src="Soul.png" id="fotos_estilos_2" style="cursor:pointer" onclick="changeGenre('Soul')"> </img>
+	      <img src="Decades.png" id="fotos_estilos_2" style="cursor:pointer" onclick="changeGenre('Decades')"> </img>
+	    </div>
+          </div>
+        </td> </tr>
+    </div>
+
+    <div id="playlist_tab" style="display:none">
+      <span id="browse_title"> Playlist </span>
+
+      <table>
+        <tr> <td>
+          <div class="songs">
+            <span id="song_title"> Frank Ocean - Novacane (3:33) </span>
+          </div>
+        </td> </tr>
+
+        <tr> <td>
+          <div class="songs">
+            <span id="song_title"> Bob Dylan - Strangers in the Night (4:59) </span>
+          </div>
+        </td> </tr>
+
+        <tr> <td>
+          <div class="songs">
+            <span id="song_title"> Billie Holiday - Summertime (2:54)</span>
+          </div>
+        </td> </tr>
+
+        <tr> <td>
+          <div class="songs" id="user_song_box" style="display:none">
+            <span id="user_song"> Musica </span>
+            <img src="remove.png" id="add_song" onclick="rem_user_song()"> </img>
+          </div>
+        </td> </tr>
+
+      </table>
+
+    </div>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - MUSIC ENDS HERE - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <!-- PEDIDO AQUI EM BAIXO
+  <div class="music_window" align="left" style="display:none">
+    <div id="barra_cima">
+      <span id="titulo_musica"> Música </span>
+      <img src="close_window.png" class="close_music"/>
+    </div>
+
+    <div id="barra_left">
+      <div id="browse_bt" style="cursor:pointer" onclick="toggleHighlight('browse_bt','browse_tab','playlist_bt', 'playlist_tab')"> <img src="browse.png" id="browse_img"> </img> </div>
+      <div id="playlist_bt" style="cursor:pointer" onclick="toggleHighlight('playlist_bt', 'playlist_tab','browse_bt','browse_tab')"> <img src="playlist.png" id="playlist_img"> </img> </div>
+    </div>
+
+    <div id="barra_nowPlaying">
+      <span id="titulo_musica"> A REPRODUZIR: Música qualquer </span>
+    </div>
+
+    <div id="browse_tab" align="center">
+      Navegar
+    </div>
+
+    <div id="playlist_tab" style="display:none" align="left">
+      <span> Lista de Reprodução </span>
+      <br> Novacane - Frank Ocean
+    </div>
+  </div>
+  -->
+
+
+  <nav id="c-circle-nav" class="c-circle-nav">
+    <button id="c-circle-nav__toggle" class="c-circle-nav__toggle">
+      <span>Toggle</span>
+    </button>
+    <ul class="c-circle-nav__items">
+      <li class="c-circle-nav__item">
+        <nav href="#" class="c-circle-nav__link">
+          <input type="checkbox" href="#" class="more_re-open" name="more_re-open" id="more_re-open" />
+
+          <label class="more_re-open-button" for="more_re-open">
+            <img src="canto/img/more_ret.png" alt="">
+          </label>
+
+          <a href="#" class="more_re-item"> <i class="fa fa-bar-chart"> <img src="canto/img/alcool.png" alt=""> </i> </a>
+          <a href="#" class="more_re-item"> <i class="fa fa-plus"> <img src="canto/img/Bus.png" alt=""> </i> </a>
+          <a href="#" class="more_re-item"> <i class="fa fa-heart"></i><img src="canto/img/wc.png" alt=""> </a>
+          <a href="#" class="more_re-item"> <i class="fa fa-envelope"></i> <img src="canto/img/options.png" alt=""></a>
+        </nav>
+      </li>
+      <li class="c-circle-nav__item">
+        <a href="#" class="c-circle-nav__link">
+          <img src="canto/img/music.png" alt="" class="music_bt">
+        </a>
+      </li>
+      <li class="c-circle-nav__item">
+        <a href="#" class="c-circle-nav__link">
+          <img src="canto/img/order.png" alt="">
+        </a>
+      </li>
+      <li class="c-circle-nav__item">
+        <a href="#" class="c-circle-nav__link">
+          <img src="canto/img/pay.png" alt="">
+        </a>
+      </li>
+      <li class="c-circle-nav__item">
+        <a href="#" class="c-circle-nav__link">
+          <img src="canto/img/waiter.png" alt="">
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+
+  <script src="canto/js/circleMenu.min.js"></script>
+
+  <div id='container' style="">
+      <div id="elem" onmousedown='mydragg.startMoving(this,"container",event);' onmouseup='mydragg.stopMoving("container");' style="width: 200px;height: 100px; display:none">
+        <table>
+          <tr>
+            <td> <div id="copo_layer" style='width:18vh;height:18vh;padding:9px;' onmouseup="copo('elem','mais_1_left','mais_1');"> </div> </td>
+
+            <td>
+	      <div id="mais_1_left" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" id="cross" onclick="toggleVisible('mais_1_left');"> </td>
+                    <td> <img src="tick.png" id="tick" class="tick_bt" onclick="toggleVisible('mais_1_left');"> </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+
+            <td>
+	      <div id="mais_1" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" id="cross" onclick="toggleVisible('mais_1');"> </td>
+		    <td> <img src="tick.png" id="tick" class="tick_bt" onclick="toggleVisible('mais_1');"> </td>
+		  </tr>
+		</table>
+              </div>
+            </td>
+
+	  </tr>
+        </table>
+      </div>
+
+    <div id="elem_tlm" onmousedown='mydragg.startMoving(this,"container",event);' onmouseup='mydragg.stopMoving("container");' style="width: 200px;height: 100px;display:none">
+        <table>
+          <tr>
+            <td> <div id="tlm_layer" style='width:25vh;height:40vh;padding:9px;' onmouseup="telemovel('elem_tlm','telemovelDados_left','telemovelDados_right');"> </div> </td>
+
+            <td>
+	      <div id="telemovelDados_left" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" id="cross" onclick="toggleVisible('telemovelDados_left');tratarTlm();"> </td>
+                    <td> <img src="tick.png" id="tick" class="tick_bt" onclick="toggleVisible('telemovelDados_left');tratarTlm();"> </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+
+            <td>
+	      <div id="telemovelDados_right" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" id="cross" onclick="toggleVisible('telemovelDados_right');tratarTlm();"> </td>
+		    <td> <img src="tick.png" id="tick" class="tick_bt" onclick="toggleVisible('telemovelDados_right');tratarTlm();"> </td>
+		  </tr>
+		</table>
+              </div>
+            </td>
+
+	  </tr>
+        </table>
+      </div>
+
+    <div id="elem_maco" onmousedown='mydragg.startMoving(this,"container",event);' onmouseup='mydragg.stopMoving("container");' style="width: 200px;height: 100px;display:none">
+        <table>
+          <tr>
+            <td> <div id="maco_layer" style='width:25vh;height:30vh;padding:9px;' onmouseup="maco('elem_maco','cinzeiro_left','cinzeiro_right');"> </div> </td>
+
+            <td>
+	            <div id="cinzeiro_left" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" id="cross" onclick="toggleVisible('cinzeiro_left');tratarMaco();"> </td>
+                    <td> <img src="tick.png" id="tick" class="tick_bt" onclick="toggleVisible('cinzeiro_left');tratarMaco();"> </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+
+            <td>
+	            <div id="cinzeiro_right" style='width:18vh;height:18vh;padding:9px;display:none'>
+                <table>
+                  <tr>
+                    <td> <img src="cross.png" id="cross" onclick="toggleVisible('cinzeiro_right');tratarMaco();"> </td>
+            		    <td> <img src="tick.png" id="tick" class="tick_bt" onclick="toggleVisible('cinzeiro_right');tratarMaco();"> </td>
+            		  </tr>
+            		</table>
+              </div>
+            </td>
+
+	         </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- POP-UP COM BARRA -->
+    <div class="popup" style="display:none"> <!-- popup content start || copy this to the end of the file-->
+      <div class="popupWindow">
+        <div class="popup_txt">
+          O seu pedido está a ser processado.
+          Aguarde um momento. Obrigado!
+        </div>
+        <div class="barra" align="center" style="padding-top:5%">
+          <div id="pbar_outerdiv" align="left" style="width: 300px; height: 30px; border: 1px solid grey; z-index: 1; position: relative; border-radius: 5px; -moz-border-radius: 5px;">
+	           <div id="pbar_innerdiv" align="left" style="background-color: grey; z-index: 2; height: 100%; width: 0%;"></div>
+          </div>
+        </div>
+        <div class="popup_img">
+          <!-- <img src="tick.png" id="cross" class="popup_img_yes"/>
+          <img src="cross.png" id="cross" class="popup_img_no"/> -->
+        </div>
+      </div>
+    </div>  <!-- popup content ends -->
+
+    <!-- POP-UP DE CONFIRMACAO -->
+
+    <!-- POP-UP ajuda -->
+    <div class="popup_ajuda" style="display:none"> <!-- popup content start || copy this to the end of the file-->
+      <div class="popupWindow">
+        <div class="popup_txt">
+          Ajuda indisponível temporariamente. <br>
+          Se necessitar de ajuda com esta funcionalidade, por favor utilize o botão do menu para chamar o empregado.
+          Pedimos desculpa pela inconveniência.
+        </div>
+        <div class="popup_img">
+      	  <img src="tick.png" id="tick_help" class="popup_img_yes"/>
+      	  <!--<img src="cross.png" id="cross" class="popup_img_no"/> -->
+      	</div>
+      </div>
+
+    </div>  <!-- popup content ends -->
+
+  </div>
+
+</body>
+</html>
